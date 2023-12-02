@@ -28,7 +28,7 @@ class Pipeline:
         self.audio_path = audio_path
         self.language = language
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        logger.info(f"Device: {self.device})
+        logger.info(f"Device: {self.device}")
 
     def transcibe(self,audio):
         try:
@@ -112,13 +112,13 @@ class Pipeline:
             logger.info("Starting Text to Speech")
             file_name = f"{root_dir}/audio/" + file + "_" + lang[-3:-1] + ".wav"
             try:
-                model = VitsModel.from_pretrained(lang).to(device)
+                model = VitsModel.from_pretrained(lang).to(self.device)
                 tts_tokenizer = AutoTokenizer.from_pretrained(lang)
             except Exception as e:
                 logger.error(f"Error while loading TTS model:{str(e)}")
                 raise typer.Exit(1)
             
-            inputs = tts_tokenizer(text, return_tensors="pt").to(device)
+            inputs = tts_tokenizer(text, return_tensors="pt").to(self.device)
             with torch.no_grad():
                 output = model(**inputs).waveform
             scipy.io.wavfile.write(
