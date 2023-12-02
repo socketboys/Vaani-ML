@@ -1,0 +1,11 @@
+2023-12-02 16:59:20.608 | INFO     | scripts.pipeline_class:<module>:23 - Running on darwin
+2023-12-02 16:59:20.610 | INFO     | scripts.pipeline_class:process:156 - marathi process started
+2023-12-02 16:59:20.610 | INFO     | scripts.pipeline_class:__init__:28 - Class initialized
+2023-12-02 16:59:20.610 | INFO     | scripts.pipeline_class:__init__:33 - Device: cpu
+2023-12-02 16:59:20.610 | INFO     | scripts.pipeline_class:start:137 - Starting Pipeline
+2023-12-02 16:59:20.610 | INFO     | scripts.pipeline_class:transcibe:38 - Starting Transcription
+2023-12-02 16:59:24.039 | INFO     | scripts.pipeline_class:transcibe:46 - Transciption Done
+2023-12-02 16:59:24.055 | INFO     | scripts.pipeline_class:translated_sub:88 - Creating Subtitles
+2023-12-02 16:59:24.056 | INFO     | scripts.pipeline_class:translated_sub:93 - Reaching out to translator function...
+2023-12-02 16:59:24.056 | ERROR    | scripts.pipeline_class:translated_sub:110 - Error while translating subtitles:[Errno 17] File exists: './data/subtitle/input_ma.srt'
+2023-12-02 16:59:24.056 | ERROR    | scripts.pipeline_class:start:151 - Error while running pipeline:1

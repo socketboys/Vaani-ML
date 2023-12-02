@@ -14,6 +14,7 @@ from config import root_dir, languages
 from loguru import logger
 from multiprocessing import Pool
 import time
+from itertools import repeat
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -160,11 +161,11 @@ def multi_process(input_path,audio,langs):
     start_time = time.time()
     logger.info("Multiprocessing started")
     
-    # with Pool(processes=len(langs)) as pool:
-    #     pool.starmap(process, zip(repeat(input_path),repeat(audio),langs))
+    with Pool(processes=len(langs)) as pool:
+        pool.starmap(process, zip(repeat(input_path),repeat(audio),langs))
     
-    for lang in langs:
-        process(input_path,audio,lang)
+    # for lang in langs:
+    #     process(input_path,audio,lang)
     
     end_time = time.time()
     duration = end_time - start_time
