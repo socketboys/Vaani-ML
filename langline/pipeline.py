@@ -60,16 +60,20 @@ def check_device():
 
 
 def transcibe(audio):
-    logging.info("Starting Transcription")
     try:
-        model = load_model("base")
+        logging.info("Starting Transcription")
+        try:
+            model = load_model("base")
+        except Exception as e:
+            logging.error(f'{e} thrown while loading whisper model ')
+            raise typer.Exit(1)
+        input_audio = load_audio(audio)
+        transcript = model.transcribe(input_audio, fp16=False)
+        logging.info("Transciption Done")
+        return transcript
     except Exception as e:
-        logging.error(f'{e} thrown from pipeline on line 54')
+        logging.error(f"Error occured while transcribing text:{str(e)}")
         raise typer.Exit(1)
-    input_audio = load_audio(audio)
-    transcript = model.transcribe(input_audio, fp16=False)
-    logging.info("Transciption Done")
-    return transcript
 
 
 def translate(text, lang):
@@ -89,22 +93,26 @@ def translate(text, lang):
         raise typer.Exit(1)
 
 def tts(file, text, lang):
-    logging.info("Starting Text to Speech")
-    file_name = "../../external/audio/" + file + "_" + lang[-3:-1] + ".wav"
     try:
-        model = VitsModel.from_pretrained(lang).to(device)
-        tts_tokenizer = AutoTokenizer.from_pretrained(lang)
-    except Exception as e:
-        logging.error(f"Error while loading TTS model:{str(e)}")
-        raise typer.Exit(1)
-    
-    inputs = tts_tokenizer(text, return_tensors="pt").to(device)
-    with torch.no_grad():
-        output = model(**inputs).waveform
-    scipy.io.wavfile.write(
-        file_name, rate=model.config.sampling_rate, data=output.cpu().numpy().squeeze())
-    logging.info("Text to Speech done")
+        logging.info("Starting Text to Speech")
+        file_name = "../../external/audio/" + file + "_" + lang[-3:-1] + ".wav"
+        try:
+            model = VitsModel.from_pretrained(lang).to(device)
+            tts_tokenizer = AutoTokenizer.from_pretrained(lang)
+        except Exception as e:
+            logging.error(f"Error while loading TTS model:{str(e)}")
+            raise typer.Exit(1)
+        
+        inputs = tts_tokenizer(text, return_tensors="pt").to(device)
+        with torch.no_grad():
+            output = model(**inputs).waveform
+        scipy.io.wavfile.write(
+            file_name, rate=model.config.sampling_rate, data=output.cpu().numpy().squeeze())
+        logging.info("Text to Speech done")
 
+    except Exception as e:
+        logging.error(f"Error while TTS:{str(e)}")
+        raise typer.Exit(1)
 
 def english_srt(transcript, audio):
     # input_audio = load_audio(audio)
@@ -118,27 +126,31 @@ def english_srt(transcript, audio):
 
 
 def translated_sub(file, lang):
-    logging.info("Creating Subtitles")
-    output_file = "../../external/subtitle/" + file + \
-        "_" + languages[lang]["tts"][-3:-1] + ".srt"
-    input_file = "../../external/input/" + file + ".srt"
+    try:
+        logging.info("Creating Subtitles")
+        output_file = "../../external/subtitle/" + file + \
+            "_" + languages[lang]["tts"][-3:-1] + ".srt"
+        input_file = "../../external/input/" + file + ".srt"
 
-    logging.info("Reaching out to translator function...")
-    with open(input_file, 'r', encoding="utf-8") as infile, open(output_file, 'x+', encoding="utf-8") as outfile:
-        for line in infile:
+        logging.info("Reaching out to translator function...")
+        with open(input_file, 'r', encoding="utf-8") as infile, open(output_file, 'x+', encoding="utf-8") as outfile:
+            for line in infile:
 
-            match = search(
-                r'\d+\n\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}\n|\d+\n', line)
-            to_translate = search(r'^[a-zA-Z]', line)
-            if match:
-                outfile.write(line)
-            elif to_translate:
+                match = search(
+                    r'\d+\n\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}\n|\d+\n', line)
+                to_translate = search(r'^[a-zA-Z]', line)
+                if match:
+                    outfile.write(line)
+                elif to_translate:
 
-                translated_text = translate(line, languages[lang]["translate"])
-                translated.append(translated_text)
-                outfile.write(translated_text + "\n\n")
-    logging.info("Translated.")
-    logging.info("Subtitles are created")
+                    translated_text = translate(line, languages[lang]["translate"])
+                    translated.append(translated_text)
+                    outfile.write(translated_text + "\n\n")
+        logging.info("Translated.")
+        logging.info("Subtitles are created")
+    except Exception as e:
+        logging.error(f"Error while translating subtitles:{str(e)}")
+        raise typer.Exit(1)
 
 
 def pipeline(path, audio, langs):
