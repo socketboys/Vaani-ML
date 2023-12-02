@@ -13,6 +13,7 @@ from whisper.utils import get_writer
 import ssl
 from config import root_dir, languages
 from loguru import logger
+import multiprocessing
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
