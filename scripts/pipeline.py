@@ -119,7 +119,7 @@ def tts(file, text, lang):
 def english_srt(transcript, audio):
     # input_audio = load_audio(audio)
     try:
-        srt_writer = get_writer("srt", f"{root_dir}/input")
+        srt_writer = get_writer("srt", f"{root_dir}/input/")
         # srt_writer = get_writer("srt", "/")
         srt_writer(transcript, audio)
     except Exception as e:
@@ -132,7 +132,7 @@ def translated_sub(file, lang):
         logger.info("Creating Subtitles")
         output_file = f"{root_dir}/subtitle/" + file + \
             "_" + languages[lang]["tts"][-3:-1] + ".srt"
-        input_file = f"{root_dir}/input" + file + ".srt"
+        input_file = f"{root_dir}/input/" + file + ".srt"
 
         logger.info("Reaching out to translator function...")
         with open(input_file, 'r', encoding="utf-8") as infile, open(output_file, 'x+', encoding="utf-8") as outfile:
