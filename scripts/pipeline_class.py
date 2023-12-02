@@ -22,9 +22,9 @@ logger.info(f"Running on {sys.platform}")
 
 
 class Pipeline:
-    def __init__(self,output_path,audio_path,language):
+    def __init__(self,input_path,audio_path,language):
         logger.info("Class initialized")
-        self.output_path = output_path
+        self.input_path = input_path
         self.audio_path = audio_path
         self.language = language
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -132,24 +132,24 @@ class Pipeline:
     def start(self):
         try:
             logger.info("Starting Pipeline")
-            logger.info("Transcribing...")
             transcript = self.transcibe(self.audio_path)
-            logger.info("Transcription Done")
-            logger.info("Translating...")
             translated_text = self.translate(transcript, self.language)
-            logger.info("Translation Done")
-            logger.info("Writing English Subtitles...")
             self.english_srt(transcript, self.audio_path)
-            logger.info("English Subtitles written")
-            logger.info("Translating Subtitles...")
             self.translated_sub(self.audio_path, self.language)
-            logger.info("Subtitles Translated")
-            logger.info("Starting TTS...")
             self.tts(self.audio_path, translated_text, languages[self.language]["tts"])
-            logger.info("TTS Done")
             logger.info("Pipeline Done")
         except Exception as e:
             logger.error(f"Error while running pipeline:{str(e)}")
             raise typer.Exit(1)
         
+    
+def process(input_path,audio,lang):
+    logger.info(f"{lang} process started")
+    Pipeline(input_path,audio,lang).start()
+    logger.info(f"{lang} process completed")
+
+
+    
+    
+    
     
