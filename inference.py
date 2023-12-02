@@ -2,7 +2,7 @@ import os
 
 import typer
 from typing import List
-from pipeline import pipeline
+from scripts import pipeline
 
 app = typer.Typer(add_completion=False)
 
@@ -13,7 +13,7 @@ def input(lang: List[str], audioname="input.mp3"):
         raise typer.BadParameter("No languages detected")
     else:
         try:
-            pipeline("../../external/input/", audioname, lang)
+            pipeline.pipeline("../../external/input/", audioname, lang)
         except Exception as e:
             typer.echo(f'{e} thrown from pipeline', err=True)
             raise typer.Exit(1)
