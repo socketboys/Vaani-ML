@@ -1,4 +1,3 @@
-import logging
 import warnings
 import sys
 import os
@@ -12,12 +11,13 @@ from whisper import load_model, load_audio
 from whisper.utils import get_writer
 import ssl
 from config import root_dir
+from loguru import logger
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
-logging.basicConfig(filename="pipeline.log",level=logging.INFO,
-                    format='%(asctime)s:%(levelname)s:%(message)s')
+logger.add("../logs/{time}.log", level="TRACE", rotation="100 MB")
 
+logger.info(f"Running on {sys.platform}")
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -27,7 +27,7 @@ try:
     tokenizer = MBart50TokenizerFast.from_pretrained(
         "facebook/mbart-large-50-one-to-many-mmt", src_lang="en_XX")
 except Exception as e:
-    logging.error(f"Error occurred while loading the model/tokenizer: {str(e)}")
+    logger.error(f"Error occurred while loading the model/tokenizer: {str(e)}")
     raise typer.Exit(1)
 
 translated = list()
@@ -58,29 +58,29 @@ languages = {
 def check_device():
     if device == 'cpu':
         warnings.warn("You are using CPU.")
-        logging.warning("You are using CPU")
+        logger.warning("You are using CPU")
 
 
 def transcibe(audio):
     try:
-        logging.info("Starting Transcription")
+        logger.info("Starting Transcription")
         try:
             model = load_model("base")
         except Exception as e:
-            logging.error(f'{e} thrown while loading whisper model ')
+            logger.error(f'{e} thrown while loading whisper model ')
             raise typer.Exit(1)
         input_audio = load_audio(audio)
         transcript = model.transcribe(input_audio, fp16=False)
-        logging.info("Transciption Done")
+        logger.info("Transciption Done")
         return transcript
     except Exception as e:
-        logging.error(f"Error occured while transcribing text:{str(e)}")
+        logger.error(f"Error occured while transcribing text:{str(e)}")
         raise typer.Exit(1)
 
 
 def translate(text, lang):
     try:
-        # logging.info("Translating...")
+        # logger.info("Translating...")
         model_inputs = tokenizer(text, return_tensors="pt").to(device)
 
         generated_tokens = translate_model.generate(
@@ -88,21 +88,21 @@ def translate(text, lang):
             forced_bos_token_id=tokenizer.lang_code_to_id[lang]
         )
         text = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
-        # logging.info("Translation Done")
+        # logger.info("Translation Done")
         return text[0]
     except Exception as e:
-        logging.error(f"Error while translating text:{str(e)}")
+        logger.error(f"Error while translating text:{str(e)}")
         raise typer.Exit(1)
 
 def tts(file, text, lang):
     try:
-        logging.info("Starting Text to Speech")
+        logger.info("Starting Text to Speech")
         file_name = f"{root_dir}/audio/" + file + "_" + lang[-3:-1] + ".wav"
         try:
             model = VitsModel.from_pretrained(lang).to(device)
             tts_tokenizer = AutoTokenizer.from_pretrained(lang)
         except Exception as e:
-            logging.error(f"Error while loading TTS model:{str(e)}")
+            logger.error(f"Error while loading TTS model:{str(e)}")
             raise typer.Exit(1)
         
         inputs = tts_tokenizer(text, return_tensors="pt").to(device)
@@ -110,10 +110,10 @@ def tts(file, text, lang):
             output = model(**inputs).waveform
         scipy.io.wavfile.write(
             file_name, rate=model.config.sampling_rate, data=output.cpu().numpy().squeeze())
-        logging.info("Text to Speech done")
+        logger.info("Text to Speech done")
 
     except Exception as e:
-        logging.error(f"Error while TTS:{str(e)}")
+        logger.error(f"Error while TTS:{str(e)}")
         raise typer.Exit(1)
 
 def english_srt(transcript, audio):
@@ -123,18 +123,18 @@ def english_srt(transcript, audio):
         # srt_writer = get_writer("srt", "/")
         srt_writer(transcript, audio)
     except Exception as e:
-        logging.error(f"Error while writing the english subtitles:{str(e)}")
+        logger.error(f"Error while writing the english subtitles:{str(e)}")
         raise typer.Exit(1)
 
 
 def translated_sub(file, lang):
     try:
-        logging.info("Creating Subtitles")
+        logger.info("Creating Subtitles")
         output_file = f"{root_dir}/subtitle/" + file + \
             "_" + languages[lang]["tts"][-3:-1] + ".srt"
         input_file = f"{root_dir}/input" + file + ".srt"
 
-        logging.info("Reaching out to translator function...")
+        logger.info("Reaching out to translator function...")
         with open(input_file, 'r', encoding="utf-8") as infile, open(output_file, 'x+', encoding="utf-8") as outfile:
             for line in infile:
 
@@ -148,15 +148,15 @@ def translated_sub(file, lang):
                     translated_text = translate(line, languages[lang]["translate"])
                     translated.append(translated_text)
                     outfile.write(translated_text + "\n\n")
-        logging.info("Translated.")
-        logging.info("Subtitles are created")
+        logger.info("Translated.")
+        logger.info("Subtitles are created")
     except Exception as e:
-        logging.error(f"Error while translating subtitles:{str(e)}")
+        logger.error(f"Error while translating subtitles:{str(e)}")
         raise typer.Exit(1)
 
 
 def pipeline(path, audio, langs):
-    logging.info("Starting the pipeline")
+    logger.info("Starting the pipeline")
     check_device()
     file = audio[:-4]
     transcript = transcibe(path + audio)
@@ -168,7 +168,7 @@ def pipeline(path, audio, langs):
         # translated_text = translate(text, languages[lang]["translate"])
         tts(file, translated_transcript, languages[lang]["tts"])
         translated.clear()
-    logging.info("Pipeline finished")
+    logger.info("Pipeline finished")
 
 
 # pipeline("converted.mp3.mp3", ["hindi"])
