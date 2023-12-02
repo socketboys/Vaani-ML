@@ -142,7 +142,7 @@ class Pipeline:
             self.translated_sub(file, self.language)
             translated_transcript = " ".join(translated)
             
-            self.tts(file, translated_text, languages[self.language]["tts"])
+            self.tts(file, translated_transcript, languages[self.language]["tts"])
             logger.info("Pipeline Done")
         except Exception as e:
             logger.error(f"Error while running pipeline:{str(e)}")
