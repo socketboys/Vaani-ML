@@ -128,6 +128,28 @@ class Pipeline:
         except Exception as e:
             logger.error(f"Error while TTS:{str(e)}")
             raise typer.Exit(1)
-      
+    
+    def start(self):
+        try:
+            logger.info("Starting Pipeline")
+            logger.info("Transcribing...")
+            transcript = self.transcibe(self.audio_path)
+            logger.info("Transcription Done")
+            logger.info("Translating...")
+            translated_text = self.translate(transcript, self.language)
+            logger.info("Translation Done")
+            logger.info("Writing English Subtitles...")
+            self.english_srt(transcript, self.audio_path)
+            logger.info("English Subtitles written")
+            logger.info("Translating Subtitles...")
+            self.translated_sub(self.audio_path, self.language)
+            logger.info("Subtitles Translated")
+            logger.info("Starting TTS...")
+            self.tts(self.audio_path, translated_text, languages[self.language]["tts"])
+            logger.info("TTS Done")
+            logger.info("Pipeline Done")
+        except Exception as e:
+            logger.error(f"Error while running pipeline:{str(e)}")
+            raise typer.Exit(1)
         
     
