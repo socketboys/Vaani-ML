@@ -148,8 +148,15 @@ def process(input_path,audio,lang):
     Pipeline(input_path,audio,lang).start()
     logger.info(f"{lang} process completed")
 
-
+def multi_process(input_path,audio,langs):
+    logger.info("Multiprocessing started")
     
+    # with Pool(processes=len(langs)) as pool:
+    #     pool.starmap(process, zip(repeat(input_path),repeat(audio),langs))
+    
+    for lang in langs:
+        process(input_path,audio,lang)
+    logger.info("Multiprocessing completed") 
     
     
     
