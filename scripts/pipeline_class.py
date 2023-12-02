@@ -13,10 +13,11 @@ import ssl
 from config import root_dir, languages
 from loguru import logger
 from multiprocessing import Pool
+import time
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
-logger.add("../logs/{time}.log", level="TRACE", rotation="100 MB")
+logger.add("./logs/{time}.log", level="TRACE", rotation="100 MB")
 
 logger.info(f"Running on {sys.platform}")
 
@@ -156,6 +157,7 @@ def process(input_path,audio_name,lang):
     logger.info(f"{lang} process completed")
 
 def multi_process(input_path,audio,langs):
+    start_time = time.time()
     logger.info("Multiprocessing started")
     
     # with Pool(processes=len(langs)) as pool:
@@ -163,7 +165,10 @@ def multi_process(input_path,audio,langs):
     
     for lang in langs:
         process(input_path,audio,lang)
-    logger.info("Multiprocessing completed") 
+    
+    end_time = time.time()
+    duration = end_time - start_time
+    logger.info(f"Multiprocessing completed and time taken {duration}") 
     
     
     
