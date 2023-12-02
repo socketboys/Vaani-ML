@@ -11,6 +11,8 @@ from transformers import VitsModel, AutoTokenizer
 from whisper import load_model, load_audio
 from whisper.utils import get_writer
 import ssl
+from config import root_dir
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
 logging.basicConfig(filename="pipeline.log",level=logging.INFO,
@@ -95,7 +97,7 @@ def translate(text, lang):
 def tts(file, text, lang):
     try:
         logging.info("Starting Text to Speech")
-        file_name = "../../external/audio/" + file + "_" + lang[-3:-1] + ".wav"
+        file_name = f"{root_dir}/audio/" + file + "_" + lang[-3:-1] + ".wav"
         try:
             model = VitsModel.from_pretrained(lang).to(device)
             tts_tokenizer = AutoTokenizer.from_pretrained(lang)
@@ -117,7 +119,7 @@ def tts(file, text, lang):
 def english_srt(transcript, audio):
     # input_audio = load_audio(audio)
     try:
-        srt_writer = get_writer("srt", "../../external/input/")
+        srt_writer = get_writer("srt", f"{root_dir}/input")
         # srt_writer = get_writer("srt", "/")
         srt_writer(transcript, audio)
     except Exception as e:
@@ -128,9 +130,9 @@ def english_srt(transcript, audio):
 def translated_sub(file, lang):
     try:
         logging.info("Creating Subtitles")
-        output_file = "../../external/subtitle/" + file + \
+        output_file = f"{root_dir}/subtitle/" + file + \
             "_" + languages[lang]["tts"][-3:-1] + ".srt"
-        input_file = "../../external/input/" + file + ".srt"
+        input_file = f"{root_dir}/input" + file + ".srt"
 
         logging.info("Reaching out to translator function...")
         with open(input_file, 'r', encoding="utf-8") as infile, open(output_file, 'x+', encoding="utf-8") as outfile:
