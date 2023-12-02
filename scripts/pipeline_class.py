@@ -30,6 +30,7 @@ class Pipeline:
         self.language = language
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         logger.info(f"Device: {self.device}")
+        self.translated = list()
 
     def transcibe(self,audio):
         try:
@@ -100,7 +101,7 @@ class Pipeline:
                     elif to_translate:
 
                         translated_text = self.translate(line, languages[lang]["translate"])
-                        translated.append(translated_text)
+                        self.translated.append(translated_text)
                         outfile.write(translated_text + "\n\n")
             logger.info("Translated.")
             logger.info("Subtitles are created")
@@ -140,9 +141,10 @@ class Pipeline:
             self.english_srt(transcript, self.input_path + self.audio_name)
             
             self.translated_sub(file, self.language)
-            translated_transcript = " ".join(translated)
+            translated_transcript = " ".join(self.translated)
             
             self.tts(file, translated_transcript, languages[self.language]["tts"])
+            self.translated.clear()
             logger.info("Pipeline Done")
         except Exception as e:
             logger.error(f"Error while running pipeline:{str(e)}")
