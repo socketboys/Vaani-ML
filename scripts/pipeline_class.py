@@ -23,10 +23,10 @@ logger.info(f"Running on {sys.platform}")
 
 
 class Pipeline:
-    def __init__(self,input_path,audio_path,language):
+    def __init__(self,input_path,audio_name,language):
         logger.info("Class initialized")
         self.input_path = input_path
-        self.audio_path = audio_path
+        self.audio_name = audio_name
         self.language = language
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         logger.info(f"Device: {self.device}")
@@ -99,7 +99,7 @@ class Pipeline:
                         outfile.write(line)
                     elif to_translate:
 
-                        translated_text = translate(line, languages[lang]["translate"])
+                        translated_text = self.translate(line, languages[lang]["translate"])
                         translated.append(translated_text)
                         outfile.write(translated_text + "\n\n")
             logger.info("Translated.")
@@ -133,20 +133,25 @@ class Pipeline:
     def start(self):
         try:
             logger.info("Starting Pipeline")
-            transcript = self.transcibe(self.audio_path)
-            translated_text = self.translate(transcript, self.language)
-            self.english_srt(transcript, self.audio_path)
-            self.translated_sub(self.audio_path, self.language)
-            self.tts(self.audio_path, translated_text, languages[self.language]["tts"])
+            file = self.audio_name[:-4]
+            transcript = self.transcibe(self.input_path + self.audio_name)
+            # translated_text = self.translate(transcript, self.language)
+            
+            self.english_srt(transcript, self.input_path + self.audio_name)
+            
+            self.translated_sub(file, self.language)
+            translated_transcript = " ".join(translated)
+            
+            self.tts(file, translated_text, languages[self.language]["tts"])
             logger.info("Pipeline Done")
         except Exception as e:
             logger.error(f"Error while running pipeline:{str(e)}")
             raise typer.Exit(1)
         
     
-def process(input_path,audio,lang):
+def process(input_path,audio_name,lang):
     logger.info(f"{lang} process started")
-    Pipeline(input_path,audio,lang).start()
+    Pipeline(input_path,audio_name,lang).start()
     logger.info(f"{lang} process completed")
 
 def multi_process(input_path,audio,langs):
