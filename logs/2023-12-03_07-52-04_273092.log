@@ -1,0 +1,25 @@
+2023-12-03 07:52:04.275 | INFO     | scripts.pipeline_class:<module>:26 - Running on darwin
+2023-12-03 07:52:04.276 | INFO     | scripts.pipeline_class:process:159 - marathi process started
+2023-12-03 07:52:04.276 | INFO     | scripts.pipeline_class:__init__:31 - Class initialized
+2023-12-03 07:52:04.276 | INFO     | scripts.pipeline_class:__init__:36 - Device: cpu
+2023-12-03 07:52:04.276 | INFO     | scripts.pipeline_class:start:140 - Starting Pipeline
+2023-12-03 07:52:04.276 | INFO     | scripts.pipeline_class:transcibe:41 - Starting Transcription
+2023-12-03 07:52:08.359 | INFO     | scripts.pipeline_class:transcibe:49 - Transciption Done
+2023-12-03 07:52:08.369 | INFO     | scripts.pipeline_class:translated_sub:91 - Creating Subtitles
+2023-12-03 07:52:08.369 | INFO     | scripts.pipeline_class:translated_sub:96 - Reaching out to translator function...
+2023-12-03 07:52:37.093 | INFO     | scripts.pipeline_class:translate:65 - Translating in mr_IN
+2023-12-03 07:52:44.878 | INFO     | scripts.pipeline_class:translate:73 - Translation Done
+2023-12-03 07:53:04.959 | INFO     | scripts.pipeline_class:translate:65 - Translating in mr_IN
+2023-12-03 07:53:05.760 | INFO     | scripts.pipeline_class:translate:73 - Translation Done
+2023-12-03 07:53:26.192 | INFO     | scripts.pipeline_class:translate:65 - Translating in mr_IN
+2023-12-03 07:53:33.435 | INFO     | scripts.pipeline_class:translate:73 - Translation Done
+2023-12-03 07:53:53.463 | INFO     | scripts.pipeline_class:translate:65 - Translating in mr_IN
+2023-12-03 07:53:54.237 | INFO     | scripts.pipeline_class:translate:73 - Translation Done
+2023-12-03 07:54:13.527 | INFO     | scripts.pipeline_class:translate:65 - Translating in mr_IN
+2023-12-03 07:54:19.735 | INFO     | scripts.pipeline_class:translate:73 - Translation Done
+2023-12-03 07:54:19.944 | INFO     | scripts.pipeline_class:translated_sub:110 - Translated.
+2023-12-03 07:54:19.945 | INFO     | scripts.pipeline_class:translated_sub:111 - Subtitles are created
+2023-12-03 07:54:19.945 | INFO     | scripts.pipeline_class:tts:118 - Starting Text to Speech
+2023-12-03 07:54:28.757 | INFO     | scripts.pipeline_class:tts:132 - Text to Speech done
+2023-12-03 07:54:28.762 | INFO     | scripts.pipeline_class:start:152 - Pipeline Done
+2023-12-03 07:54:28.763 | INFO     | scripts.pipeline_class:process:161 - marathi process completed
