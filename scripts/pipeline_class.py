@@ -12,9 +12,12 @@ from whisper.utils import get_writer
 import ssl
 from config import root_dir, languages
 from loguru import logger
-from multiprocessing import Pool
+# from multiprocessing import Pool
 import time
 from itertools import repeat
+import ray
+from ray.util.multiprocessing import Pool
+
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
