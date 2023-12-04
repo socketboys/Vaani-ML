@@ -26,3 +26,4 @@ languages = {
                 "tts": "facebook/mms-tts-kan"
             }
         }
+gpu_devices = [0, 1, 2] 

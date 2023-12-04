@@ -10,14 +10,16 @@ from transformers import VitsModel, AutoTokenizer
 from whisper import load_model, load_audio
 from whisper.utils import get_writer
 import ssl
-from config import root_dir, languages
+from config import root_dir, languages,gpu_devices
 from loguru import logger
 from multiprocessing import Pool
 import time
 from itertools import repeat
 # import ray
 # from ray.util.multiprocessing import Pool
+import torch.multiprocessing as mp
 
+mp.set_start_method('spawn', force=True)
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -156,21 +158,26 @@ class Pipeline:
             raise typer.Exit(1)
         
     
-def process(input_path,audio_name,lang):
-    logger.info(f"{lang} process started")
-    Pipeline(input_path,audio_name,lang).start()
-    logger.info(f"{lang} process completed")
+def process(input_path, audio_name, lang, gpu_device):
+    torch.cuda.set_device(gpu_device)
+    logger.info(f"{lang} process started on GPU {gpu_device}")
+    Pipeline(input_path, audio_name, lang).start()
+    logger.info(f"{lang} process completed on GPU {gpu_device}")
+
 
 def multi_process(input_path,audio,langs):
     start_time = time.time()
     logger.info("Multiprocessing started")
     
-    with Pool(processes=len(langs)) as pool:
-        pool.starmap(process, zip(repeat(input_path),repeat(audio),langs))
-    
-    # for lang in langs:
-    #     process(input_path,audio,lang)
-    
+    processes = []
+    for i, lang in enumerate(langs):
+        p = mp.Process(target=process, args=(input_path, audio, lang, gpu_devices[i % len(gpu_devices)]))
+        processes.append(p)
+        p.start()
+
+    for p in processes:
+        p.join()
+         
     end_time = time.time()
     duration = end_time - start_time
     logger.info(f"Multiprocessing completed and time taken {duration}") 
