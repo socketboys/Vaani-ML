@@ -6,7 +6,6 @@ import typer
 import scipy
 import torch
 from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
-from transformers import VitsModel, AutoTokenizer
 from transformers import AutoProcessor, SeamlessM4Tv2Model
 from whisper import load_model, load_audio
 from whisper.utils import get_writer
