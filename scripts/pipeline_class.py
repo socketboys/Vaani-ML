@@ -7,6 +7,7 @@ import scipy
 import torch
 from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 from transformers import VitsModel, AutoTokenizer
+from transformers import AutoProcessor, SeamlessM4Tv2Model
 from whisper import load_model, load_audio
 from whisper.utils import get_writer
 import ssl
@@ -118,17 +119,17 @@ class Pipeline:
             logger.info("Starting Text to Speech")
             file_name = f"{root_dir}/audio/" + file + "_" + lang[-3:-1] + ".wav"
             try:
-                model = VitsModel.from_pretrained(lang).to(self.device)
-                tts_tokenizer = AutoTokenizer.from_pretrained(lang)
+               processor = AutoProcessor.from_pretrained("facebook/seamless-m4t-v2-large")
+               model = SeamlessM4Tv2Model.from_pretrained("facebook/seamless-m4t-v2-large").to(self.device)
             except Exception as e:
                 logger.error(f"Error while loading TTS model:{str(e)}")
                 raise typer.Exit(1)
             
-            inputs = tts_tokenizer(text, return_tensors="pt").to(self.device)
-            with torch.no_grad():
-                output = model(**inputs).waveform
+            text_inputs = processor(text = text, src_lang="eng", return_tensors="pt").to(self.device)
+            output = model.generate(**text_inputs, tgt_lang=lang)[0].cpu().numpy().squeeze()
+
             scipy.io.wavfile.write(
-                file_name, rate=model.config.sampling_rate, data=output.cpu().numpy().squeeze())
+                file_name, rate=model.config.sampling_rate, data=output)
             logger.info("Text to Speech done")
 
         except Exception as e:
