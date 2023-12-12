@@ -32,7 +32,6 @@ class Pipeline:
         self.audio_name = audio_name
         self.language = language
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        # self.device = torch.device('mps')
         logger.info(f"Device: {self.device}")
         self.translated = list()
 
