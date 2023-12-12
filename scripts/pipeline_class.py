@@ -11,7 +11,7 @@ from transformers import AutoProcessor, SeamlessM4Tv2Model
 from whisper import load_model, load_audio
 from whisper.utils import get_writer
 import ssl
-from config import root_dir, languages
+from config import root_dir, languages,gender
 from loguru import logger
 from multiprocessing import Pool
 import time
@@ -28,11 +28,12 @@ logger.info(f"Running on {sys.platform}")
 
 
 class Pipeline:
-    def __init__(self,input_path,audio_name,language):
+    def __init__(self,input_path,audio_name,language,gender):
         logger.info("Class initialized")
         self.input_path = input_path
         self.audio_name = audio_name
         self.language = language
+        self.gender = gender
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         logger.info(f"Device: {self.device}")
         self.translated = list()
@@ -114,7 +115,7 @@ class Pipeline:
             logger.error(f"Error while translating subtitles:{str(e)}")
             raise typer.Exit(1)
             
-    def tts(self,file, text, lang):
+    def tts(self,file, text, lang,gender):
         try:
             logger.info("Starting Text to Speech")
             file_name = f"{root_dir}/audio/" + file + "_" + lang[-3:-1] + ".wav"
@@ -126,7 +127,7 @@ class Pipeline:
                 raise typer.Exit(1)
             
             text_inputs = processor(text = text, src_lang="eng", return_tensors="pt").to(self.device)
-            output = model.generate(**text_inputs, tgt_lang=lang)[0].cpu().numpy().squeeze()
+            output = model.generate(**text_inputs, tgt_lang=lang, speaker_id=gender)[0].cpu().numpy().squeeze()
 
             scipy.io.wavfile.write(
                 file_name, rate=model.config.sampling_rate, data=output)
@@ -148,7 +149,7 @@ class Pipeline:
             self.translated_sub(file, self.language)
             translated_transcript = " ".join(self.translated)
             
-            self.tts(file, translated_transcript, languages[self.language]["tts"])
+            self.tts(file, translated_transcript, languages[self.language]["tts"],gender[self.gender])
             self.translated.clear()
             logger.info("Pipeline Done")
         except Exception as e:
@@ -156,17 +157,17 @@ class Pipeline:
             raise typer.Exit(1)
         
     
-def process(input_path,audio_name,lang):
+def process(input_path,audio_name,lang,gender):
     logger.info(f"{lang} process started")
-    Pipeline(input_path,audio_name,lang).start()
+    Pipeline(input_path,audio_name,lang,gender).start()
     logger.info(f"{lang} process completed")
 
-def multi_process(input_path,audio,langs):
+def multi_process(input_path,audio,langs,gender):
     start_time = time.time()
     logger.info("Multiprocessing started")
     
     with Pool(processes=len(langs)) as pool:
-        pool.starmap(process, zip(repeat(input_path),repeat(audio),langs))
+        pool.starmap(process, zip(repeat(input_path),repeat(audio),langs,repeat(gender)))
     
     # for lang in langs:
     #     process(input_path,audio,lang)
