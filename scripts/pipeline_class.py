@@ -7,8 +7,7 @@ import scipy
 import torch
 from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 from transformers import AutoProcessor, SeamlessM4Tv2Model
-from whisper import load_model, load_audio
-from whisper.utils import get_writer
+from faster_whisper import WhisperModel
 import ssl
 from config import root_dir, languages,gender
 from loguru import logger
@@ -37,18 +36,43 @@ class Pipeline:
         logger.info(f"Device: {self.device}")
         self.translated = list()
 
+    def seconds_to_subtitle_time(self, seconds):
+        hours = int(seconds // 3600)
+        seconds %= 3600
+        minutes = int(seconds // 60)
+        seconds %= 60
+        milliseconds = int((seconds - int(seconds)) * 1000)
+        seconds = int(seconds)
+
+        return f"{hours:02d}:{minutes:02d}:{seconds:02d},{milliseconds:03d}"
+
     def transcibe(self,audio):
         try:
             logger.info("Starting Transcription")
             try:
-                model = load_model("base")
+                model_size = 'large-v2'
+                #use float16 for gpu
+                model = WhisperModel(model_size, device='cpu', compute_type='int8')
             except Exception as e:
                 logger.error(f'{e} thrown while loading whisper model')
                 raise typer.Exit(1)
-            input_audio = load_audio(audio)
-            transcript = model.transcribe(input_audio, fp16=False)
+            segments, _ = model.transcribe(audio, beam_size=5)
             logger.info("Transciption Done")
-            return transcript
+
+            i=0
+            srt=""
+            output_file = f"{root_dir}/input/"+self.audio_name[:-4] +".srt"
+            for segment in segments:
+                text = segment.text.lstrip()
+                i=i+1
+                srt = srt+"%i\n%s --> %s\n%s"%(i,self.seconds_to_subtitle_time(segment.start), self.seconds_to_subtitle_time(segment.end), text)+"\n\n"
+
+
+            with open(output_file, 'x+', encoding='utf-8') as f:
+                f.write(srt)
+            return segments
+        
+
         except Exception as e:
             logger.error(f"Error occured while transcribing text:{str(e)}")
             raise typer.Exit(1)
@@ -77,15 +101,6 @@ class Pipeline:
             logger.error(f"Error while translating text:{str(e)}")
             raise typer.Exit(1)
                     
-    def english_srt(self,transcript, audio):
-        # input_audio = load_audio(audio)
-        try:
-            srt_writer = get_writer("srt", f"{root_dir}/input/")
-            # srt_writer = get_writer("srt", "/")
-            srt_writer(transcript, audio)
-        except Exception as e:
-            logger.error(f"Error while writing the english subtitles:{str(e)}")
-            raise typer.Exit(1)
     
     def translated_sub(self,file,lang):
         try:
@@ -143,7 +158,7 @@ class Pipeline:
             transcript = self.transcibe(self.input_path + self.audio_name)
             # translated_text = self.translate(transcript, self.language)
             
-            self.english_srt(transcript, self.input_path + self.audio_name)
+            # self.english_srt(transcript, self.input_path + self.audio_name)
             
             self.translated_sub(file, self.language)
             translated_transcript = " ".join(self.translated)
@@ -175,5 +190,5 @@ def multi_process(input_path,audio,langs,gender):
     duration = end_time - start_time
     logger.info(f"Multiprocessing completed and time taken {duration}") 
     
-    
+process(f'{root_dir}/input/', 'input.mp3', 'hindi')
     
