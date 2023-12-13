@@ -188,7 +188,4 @@ def multi_process(input_path,audio,langs,gender):
     
     end_time = time.time()
     duration = end_time - start_time
-    logger.info(f"Multiprocessing completed and time taken {duration}") 
-    
-process(f'{root_dir}/input/', 'input.mp3', 'hindi')
-    
+    logger.info(f"Multiprocessing completed and time taken {duration}")

@@ -1,5 +1,5 @@
-root_dir = "./data"
-# root_dir = "./data"
+root_dir = "../external"    # deployment
+# root_dir = "./data"         local
 languages = {
             "hindi": {
                 "translate": "hi_IN",
@@ -15,7 +15,6 @@ languages = {
                 "translate": "te_IN",
                 "tts": "tel",
             },
-           
         }
 gender = {
             "female": 3,

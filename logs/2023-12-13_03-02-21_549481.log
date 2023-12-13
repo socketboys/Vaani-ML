@@ -1,9 +1,0 @@
-2023-12-13 03:02:21.549 | INFO     | __main__:<module>:25 - Running on win32
-2023-12-13 03:02:21.549 | INFO     | __main__:process:174 - hindi process started
-2023-12-13 03:02:21.549 | INFO     | __main__:__init__:30 - Class initialized
-2023-12-13 03:02:21.549 | INFO     | __main__:__init__:35 - Device: cpu
-2023-12-13 03:02:21.549 | INFO     | __main__:start:155 - Starting Pipeline
-2023-12-13 03:02:21.549 | INFO     | __main__:transcibe:50 - Starting Transcription
-2023-12-13 03:02:50.821 | INFO     | __main__:transcibe:59 - Transciption Done
-2023-12-13 03:03:00.604 | ERROR    | __main__:transcibe:76 - Error occured while transcribing text:[Errno 17] File exists: 'E:/Vaani-ML/data/input/input.srt'
-2023-12-13 03:03:00.608 | ERROR    | __main__:start:169 - Error while running pipeline:1
