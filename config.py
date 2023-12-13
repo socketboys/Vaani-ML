@@ -1,5 +1,5 @@
-root_dir = "../external"    # deployment
-# root_dir = "./data"         local
+# root_dir = "../external"    # deployment
+root_dir = "./data"         #local
 languages = {
             "hindi": {
                 "translate": "hi_IN",

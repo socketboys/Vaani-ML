@@ -1,26 +1,26 @@
-import os
-
-import typer
+import argparse
 from typing import List
 from scripts import pipeline_class
 from config import root_dir
-app = typer.Typer(add_completion=False)
 
 input_dir = f"{root_dir}/input/"
-@app.command()
-def input(gender: str,lang: List[str], audioname="input.mp3"):
-    if len(lang) == 0:
-        raise typer.BadParameter("No languages detected")
-    else:
-        try:
-            pipeline_class.multi_process(input_dir, audioname, lang, gender)
-        except Exception as e:
-            typer.echo(f'{e} thrown from pipeline', err=True)
-            raise typer.Exit(1)
 
 def main():
-    app()
+    parser = argparse.ArgumentParser(description="Process audio input with specified languages and gender.")
+    parser.add_argument("--gender", required=True, help="Gender of the speaker")
+    parser.add_argument("--lang", nargs="+", required=True, help="List of languages")
+    parser.add_argument("--audioname", default="input.mp3", help="Name of the audio file")
 
+    args = parser.parse_args()
+
+    if len(args.lang) == 0:
+        parser.error("No languages detected")
+
+    try:
+        pipeline_class.multi_process(input_dir, args.audioname, args.lang, args.gender)
+    except Exception as e:
+        print(f'{e} thrown from pipeline')
+        exit(1)
 
 if __name__ == "__main__":
     main()
