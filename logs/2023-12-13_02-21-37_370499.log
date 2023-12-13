@@ -1,0 +1,9 @@
+2023-12-13 02:21:37.376 | INFO     | __main__:<module>:26 - Running on win32
+2023-12-13 02:21:37.376 | INFO     | __main__:process:185 - ['hindi'] process started
+2023-12-13 02:21:37.377 | INFO     | __main__:__init__:31 - Class initialized
+2023-12-13 02:21:37.377 | INFO     | __main__:__init__:37 - Device: cpu
+2023-12-13 02:21:37.377 | INFO     | __main__:start:166 - Starting Pipeline
+2023-12-13 02:21:37.377 | INFO     | __main__:transcibe:52 - Starting Transcription
+2023-12-13 02:22:06.265 | INFO     | __main__:transcibe:61 - Transciption Done
+2023-12-13 02:22:16.142 | ERROR    | __main__:transcibe:78 - Error occured while transcribing text:Pipeline.seconds_to_subtitle_time() takes 1 positional argument but 2 were given
+2023-12-13 02:22:16.146 | ERROR    | __main__:start:180 - Error while running pipeline:1

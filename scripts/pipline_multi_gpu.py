@@ -7,16 +7,19 @@ import scipy
 import torch
 from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 from transformers import VitsModel, AutoTokenizer
-from faster_whisper import WhisperModel
+from whisper import load_model, load_audio
+from whisper.utils import get_writer
 import ssl
-from config import root_dir, languages
+from config import root_dir, languages,gpu_devices
 from loguru import logger
 from multiprocessing import Pool
 import time
 from itertools import repeat
 # import ray
 # from ray.util.multiprocessing import Pool
+import torch.multiprocessing as mp
 
+mp.set_start_method('spawn', force=True)
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -31,47 +34,23 @@ class Pipeline:
         self.input_path = input_path
         self.audio_name = audio_name
         self.language = language
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        # self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.device = torch.device('mps')
         logger.info(f"Device: {self.device}")
         self.translated = list()
-
-    def seconds_to_subtitle_time(self, seconds):
-        hours = int(seconds // 3600)
-        seconds %= 3600
-        minutes = int(seconds // 60)
-        seconds %= 60
-        milliseconds = int((seconds - int(seconds)) * 1000)
-        seconds = int(seconds)
-
-        return f"{hours:02d}:{minutes:02d}:{seconds:02d},{milliseconds:03d}"
 
     def transcibe(self,audio):
         try:
             logger.info("Starting Transcription")
             try:
-                model_size = 'large-v2'
-                #use float16 for gpu
-                model = WhisperModel(model_size, device='cpu', compute_type='int8')
+                model = load_model("base")
             except Exception as e:
                 logger.error(f'{e} thrown while loading whisper model')
                 raise typer.Exit(1)
-            segments, _ = model.transcribe(audio, beam_size=5)
+            input_audio = load_audio(audio)
+            transcript = model.transcribe(input_audio, fp16=False)
             logger.info("Transciption Done")
-
-            i=0
-            srt=""
-            output_file = f"{root_dir}/input/"+self.audio_name[:-4] +".srt"
-            for segment in segments:
-                text = segment.text.lstrip()
-                i=i+1
-                srt = srt+"%i\n%s --> %s\n%s"%(i,self.seconds_to_subtitle_time(segment.start), self.seconds_to_subtitle_time(segment.end), text)+"\n\n"
-
-
-            with open(output_file, 'x+', encoding='utf-8') as f:
-                f.write(srt)
-            return segments
-        
-
+            return transcript
         except Exception as e:
             logger.error(f"Error occured while transcribing text:{str(e)}")
             raise typer.Exit(1)
@@ -100,6 +79,15 @@ class Pipeline:
             logger.error(f"Error while translating text:{str(e)}")
             raise typer.Exit(1)
                     
+    def english_srt(self,transcript, audio):
+        # input_audio = load_audio(audio)
+        try:
+            srt_writer = get_writer("srt", f"{root_dir}/input/")
+            # srt_writer = get_writer("srt", "/")
+            srt_writer(transcript, audio)
+        except Exception as e:
+            logger.error(f"Error while writing the english subtitles:{str(e)}")
+            raise typer.Exit(1)
     
     def translated_sub(self,file,lang):
         try:
@@ -157,7 +145,7 @@ class Pipeline:
             transcript = self.transcibe(self.input_path + self.audio_name)
             # translated_text = self.translate(transcript, self.language)
             
-            # self.english_srt(transcript, self.input_path + self.audio_name)
+            self.english_srt(transcript, self.input_path + self.audio_name)
             
             self.translated_sub(file, self.language)
             translated_transcript = " ".join(self.translated)
@@ -170,24 +158,29 @@ class Pipeline:
             raise typer.Exit(1)
         
     
-def process(input_path,audio_name,lang):
-    logger.info(f"{lang} process started")
-    Pipeline(input_path,audio_name,lang).start()
-    logger.info(f"{lang} process completed")
+def process(input_path, audio_name, lang, gpu_device):
+    torch.cuda.set_device(gpu_device)
+    logger.info(f"{lang} process started on GPU {gpu_device}")
+    Pipeline(input_path, audio_name, lang).start()
+    logger.info(f"{lang} process completed on GPU {gpu_device}")
+
 
 def multi_process(input_path,audio,langs):
     start_time = time.time()
     logger.info("Multiprocessing started")
     
-    with Pool(processes=len(langs)) as pool:
-        pool.starmap(process, zip(repeat(input_path),repeat(audio),langs))
-    
-    # for lang in langs:
-    #     process(input_path,audio,lang)
-    
+    processes = []
+    for i, lang in enumerate(langs):
+        p = mp.Process(target=process, args=(input_path, audio, lang, gpu_devices[i % len(gpu_devices)]))
+        processes.append(p)
+        p.start()
+
+    for p in processes:
+        p.join()
+         
     end_time = time.time()
     duration = end_time - start_time
     logger.info(f"Multiprocessing completed and time taken {duration}") 
     
-process(f'{root_dir}/input/', 'input.mp3', 'hindi')
+    
     
