@@ -1,0 +1,18 @@
+2023-12-13 18:48:40.924 | INFO     | scripts.pipeline_class:<module>:22 - Running on darwin
+2023-12-13 18:48:40.925 | INFO     | scripts.pipeline_class:process:172 - telugu process started
+2023-12-13 18:48:40.925 | INFO     | scripts.pipeline_class:__init__:27 - Class initialized
+2023-12-13 18:48:40.925 | INFO     | scripts.pipeline_class:__init__:33 - Device: cpu
+2023-12-13 18:48:40.925 | INFO     | scripts.pipeline_class:start:153 - Starting Pipeline
+2023-12-13 18:48:40.926 | INFO     | scripts.pipeline_class:transcibe:48 - Starting Transcription
+2023-12-13 18:48:57.382 | INFO     | scripts.pipeline_class:transcibe:57 - Transciption Done
+2023-12-13 18:49:16.587 | INFO     | scripts.pipeline_class:translated_sub:104 - Creating Subtitles
+2023-12-13 18:49:16.587 | INFO     | scripts.pipeline_class:translated_sub:109 - Reaching out to translator function...
+2023-12-13 18:49:34.221 | INFO     | scripts.pipeline_class:translate:87 - Translating in te_IN
+2023-12-13 18:49:36.692 | INFO     | scripts.pipeline_class:translate:95 - Translation Done
+2023-12-13 18:49:53.041 | INFO     | scripts.pipeline_class:translate:87 - Translating in te_IN
+2023-12-13 18:49:54.674 | INFO     | scripts.pipeline_class:translate:95 - Translation Done
+2023-12-13 18:50:10.454 | INFO     | scripts.pipeline_class:translate:87 - Translating in te_IN
+2023-12-13 18:50:13.426 | INFO     | scripts.pipeline_class:translate:95 - Translation Done
+2023-12-13 18:50:13.677 | INFO     | scripts.pipeline_class:translated_sub:123 - Translated.
+2023-12-13 18:50:13.677 | INFO     | scripts.pipeline_class:translated_sub:124 - Subtitles are created
+2023-12-13 18:50:13.677 | INFO     | scripts.pipeline_class:tts:131 - Starting Text to Speech

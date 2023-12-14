@@ -8,6 +8,7 @@ import torch
 from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 from transformers import AutoProcessor, SeamlessM4Tv2Model
 from faster_whisper import WhisperModel
+from transformers.pipelines import pipeline
 import ssl
 from config import root_dir, languages,gender
 from loguru import logger
@@ -170,15 +171,28 @@ class Pipeline:
             logger.error(f"Error while running pipeline:{str(e)}")
             raise typer.Exit(1)
         
+
+
+def get_gender(audioname,input_path):
+    logger.info("Getting gender")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    path = f"{input_path}{audioname}"
+    pipe = pipeline(model="alefiury/wav2vec2-large-xlsr-53-gender-recognition-librispeech", trust_remote_code=True,device=device)
+    result = pipe(path)
+    logger.info(result[0]['label'])
+    result = result[0]['label']
+    return result
     
 def process(input_path,audio_name,lang,gender):
     logger.info(f"{lang} process started")
     Pipeline(input_path,audio_name,lang,gender).start()
     logger.info(f"{lang} process completed")
 
-def multi_process(input_path,audio,langs,gender):
+def multi_process(input_path,audio,langs):
     start_time = time.time()
     logger.info("Multiprocessing started")
+    
+    gender = get_gender(audio,input_path)
     
     with Pool(processes=len(langs)) as pool:
         pool.starmap(process, zip(repeat(input_path),repeat(audio),langs,repeat(gender)))
@@ -190,5 +204,5 @@ def multi_process(input_path,audio,langs,gender):
     duration = end_time - start_time
     logger.info(f"Multiprocessing completed and time taken {duration}") 
     
-process(f'{root_dir}/input/', 'input.mp3', 'hindi')
+
     
