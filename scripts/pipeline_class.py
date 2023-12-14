@@ -37,46 +37,7 @@ class Pipeline:
         logger.info(f"Device: {self.device}")
         self.translated = list()
 
-    def seconds_to_subtitle_time(self, seconds):
-        hours = int(seconds // 3600)
-        seconds %= 3600
-        minutes = int(seconds // 60)
-        seconds %= 60
-        milliseconds = int((seconds - int(seconds)) * 1000)
-        seconds = int(seconds)
-
-        return f"{hours:02d}:{minutes:02d}:{seconds:02d},{milliseconds:03d}"
-
-    def transcibe(self,audio):
-        try:
-            logger.info("Starting Transcription")
-            try:
-                model_size = 'large-v2'
-                #use float16 for gpu
-                model = WhisperModel(model_size, device='cpu', compute_type='int8')
-            except Exception as e:
-                logger.error(f'{e} thrown while loading whisper model')
-                raise typer.Exit(1)
-            segments, _ = model.transcribe(audio, beam_size=5)
-            logger.info("Transciption Done")
-
-            i=0
-            srt=""
-            output_file = f"{root_dir}/input/"+self.audio_name[:-4] +".srt"
-            for segment in segments:
-                text = segment.text.lstrip()
-                i=i+1
-                srt = srt+"%i\n%s --> %s\n%s"%(i,self.seconds_to_subtitle_time(segment.start), self.seconds_to_subtitle_time(segment.end), text)+"\n\n"
-
-
-            with open(output_file, 'x+', encoding='utf-8') as f:
-                f.write(srt)
-            return segments
-        
-
-        except Exception as e:
-            logger.error(f"Error occured while transcribing text:{str(e)}")
-            raise typer.Exit(1)
+    
     
     def translate(self,text,lang):
         try:
@@ -170,6 +131,49 @@ class Pipeline:
         except Exception as e:
             logger.error(f"Error while running pipeline:{str(e)}")
             raise typer.Exit(1)
+
+
+def seconds_to_subtitle_time(seconds):
+        hours = int(seconds // 3600)
+        seconds %= 3600
+        minutes = int(seconds // 60)
+        seconds %= 60
+        milliseconds = int((seconds - int(seconds)) * 1000)
+        seconds = int(seconds)
+
+        return f"{hours:02d}:{minutes:02d}:{seconds:02d},{milliseconds:03d}"
+
+
+def transcibe(input_path, audio_name):
+    try:
+        logger.info("Starting Transcription")
+        try:
+            model_size = 'large-v2'
+            #use float16 for gpu
+            model = WhisperModel(model_size, device='cpu', compute_type='int8')
+        except Exception as e:
+            logger.error(f'{e} thrown while loading whisper model')
+            raise typer.Exit(1)
+        segments, _ = model.transcribe(input_path+audio_name, beam_size=5)
+        logger.info("Transciption Done")
+
+        i=0
+        srt=""
+        output_file = f"{root_dir}/input/"+ audio_name[:-4] +".srt"
+        for segment in segments:
+            text = segment.text.lstrip()
+            i=i+1
+            srt = srt+"%i\n%s --> %s\n%s"%(i,seconds_to_subtitle_time(segment.start), seconds_to_subtitle_time(segment.end), text)+"\n\n"
+
+
+        with open(output_file, 'x+', encoding='utf-8') as f:
+            f.write(srt)
+        return segments
+        
+
+    except Exception as e:
+        logger.error(f"Error occured while transcribing text:{str(e)}")
+        raise typer.Exit(1)
         
 
 
@@ -193,6 +197,7 @@ def multi_process(input_path,audio,langs):
     logger.info("Multiprocessing started")
     
     gender = get_gender(audio,input_path)
+    transcript = transcibe(input_path, audio)
     
     with Pool(processes=len(langs)) as pool:
         pool.starmap(process, zip(repeat(input_path),repeat(audio),langs,repeat(gender)))
