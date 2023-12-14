@@ -1,0 +1,16 @@
+2023-12-13 18:29:56.821 | INFO     | scripts.pipeline_class:<module>:25 - Running on win32
+2023-12-13 18:29:56.821 | INFO     | scripts.pipeline_class:<module>:25 - Running on win32
+2023-12-13 18:29:56.824 | INFO     | scripts.pipeline_class:process:174 - hindi process started
+2023-12-13 18:29:56.824 | INFO     | scripts.pipeline_class:process:174 - bengali process started
+2023-12-13 18:29:56.824 | INFO     | scripts.pipeline_class:__init__:30 - Class initialized
+2023-12-13 18:29:56.824 | INFO     | scripts.pipeline_class:__init__:30 - Class initialized
+2023-12-13 18:29:56.824 | INFO     | scripts.pipeline_class:__init__:35 - Device: cpu
+2023-12-13 18:29:56.825 | INFO     | scripts.pipeline_class:__init__:35 - Device: cpu
+2023-12-13 18:29:56.825 | INFO     | scripts.pipeline_class:start:155 - Starting Pipeline
+2023-12-13 18:29:56.831 | INFO     | scripts.pipeline_class:transcibe:50 - Starting Transcription
+2023-12-13 18:29:56.831 | INFO     | scripts.pipeline_class:start:155 - Starting Pipeline
+2023-12-13 18:29:56.831 | INFO     | scripts.pipeline_class:transcibe:50 - Starting Transcription
+2023-12-13 18:30:35.271 | ERROR    | scripts.pipeline_class:transcibe:76 - Error occured while transcribing text:[Errno 2] No such file or directory: './data/input/input.mp3'
+2023-12-13 18:30:35.277 | ERROR    | scripts.pipeline_class:start:169 - Error while running pipeline:1
+2023-12-13 18:30:35.750 | ERROR    | scripts.pipeline_class:transcibe:76 - Error occured while transcribing text:[Errno 2] No such file or directory: './data/input/input.mp3'
+2023-12-13 18:30:35.757 | ERROR    | scripts.pipeline_class:start:169 - Error while running pipeline:1

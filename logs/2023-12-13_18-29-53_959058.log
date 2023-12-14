@@ -1,0 +1,2 @@
+2023-12-13 18:29:53.960 | INFO     | scripts.pipeline_class:<module>:25 - Running on win32
+2023-12-13 18:29:53.962 | INFO     | scripts.pipeline_class:multi_process:180 - Multiprocessing started
