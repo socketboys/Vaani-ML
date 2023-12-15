@@ -102,7 +102,7 @@ class Pipeline:
                 logger.error(f"Error while loading TTS model:{str(e)}")
                 raise typer.Exit(1)
             
-            text_inputs = processor(text = text, src_lang="eng", return_tensors="pt").to(self.device)
+            text_inputs = processor(text = text, src_lang=lang, return_tensors="pt").to(self.device)
             output = model.generate(**text_inputs, tgt_lang=lang, speaker_id=gender)[0].cpu().numpy().squeeze()
 
             scipy.io.wavfile.write(
