@@ -1,0 +1,7 @@
+2023-12-14 18:09:28.238 | INFO     | scripts.pipeline_class:<module>:27 - Running on darwin
+2023-12-14 18:09:28.238 | INFO     | scripts.pipeline_class:multi_process:234 - Multiprocessing started
+2023-12-14 18:09:28.238 | INFO     | scripts.pipeline_class:get_gender:212 - Getting gender
+2023-12-14 18:09:34.165 | INFO     | scripts.pipeline_class:get_gender:221 - male
+2023-12-14 18:09:34.221 | INFO     | scripts.pipeline_class:transcibe:43 - Starting Transcription
+2023-12-14 18:09:44.436 | INFO     | scripts.pipeline_class:transcibe:52 - Transciption Done
+2023-12-14 18:09:50.388 | ERROR    | scripts.pipeline_class:transcibe:77 - Error occured while transcribing text:seconds_to_subtitle_time() missing 1 required positional argument: 'seconds'

@@ -117,7 +117,7 @@ class Pipeline:
         try:
             logger.info("Starting Pipeline")
             file = self.audio_name[:-4]
-            transcript = self.transcibe(self.input_path + self.audio_name)
+            # transcript = self.transcibe(self.input_path + self.audio_name)
             # translated_text = self.translate(transcript, self.language)
             
             # self.english_srt(transcript, self.input_path + self.audio_name)

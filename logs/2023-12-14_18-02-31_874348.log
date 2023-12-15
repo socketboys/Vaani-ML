@@ -1,0 +1,7 @@
+2023-12-14 18:02:31.877 | INFO     | scripts.pipeline_class:<module>:27 - Running on darwin
+2023-12-14 18:02:31.877 | INFO     | scripts.pipeline_class:multi_process:233 - Multiprocessing started
+2023-12-14 18:02:31.877 | INFO     | scripts.pipeline_class:get_gender:211 - Getting gender
+2023-12-14 18:02:37.950 | INFO     | scripts.pipeline_class:get_gender:220 - male
+2023-12-14 18:02:37.997 | INFO     | scripts.pipeline_class:transcibe:32 - Starting Transcription
+2023-12-14 18:02:49.193 | INFO     | scripts.pipeline_class:transcibe:41 - Transciption Done
+2023-12-14 18:02:49.194 | ERROR    | scripts.pipeline_class:transcibe:66 - Error occured while transcribing text:name 'self' is not defined
