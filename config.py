@@ -1,4 +1,4 @@
-root_dir = "./data"
+root_dir = "E:/Vaani-ML/data"
 # input_dir = "../../external/"
 languages = {
             "hindi": {
@@ -26,4 +26,21 @@ languages = {
                 "tts": "facebook/mms-tts-kan"
             }
         }
+
+AIBharat_TTS = {
+    'assamese':'as', 
+    'bengali':'bn', 
+    'bodo':'brx', 
+    'hinglish':'en+hi', 
+    'gujrati':'gu', 
+    'hindi':'hi', 
+    'kannada':'kn', 
+    'malyalam':'ml', 
+    'manipuri':'mni', 
+    'marathi':'mr', 
+    'odiya':'or', 'punjabi':'pa',
+    'rajasthani':'raj', 
+    'tamil':'ta', 
+    'telugu':'te'
+}
 gpu_devices = [0, 1, 2] 
