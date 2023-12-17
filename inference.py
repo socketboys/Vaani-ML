@@ -1,9 +1,11 @@
 import argparse
 from typing import List
-from scripts import pipeline_class
+from scripts import pipeline_class,pipeline_ai
 from config import root_dir
 
 input_dir = f"{root_dir}/input/"
+
+seamless = ["hindi","bengali","telugu"]
 
 def main():
     parser = argparse.ArgumentParser(description="Process audio input with specified languages")
@@ -14,12 +16,19 @@ def main():
 
     if len(args.lang) == 0:
         parser.error("No languages detected")
-
-    try:
-        pipeline_class.multi_process(input_dir, args.audioname, args.lang)
-    except Exception as e:
-        print(f'{e} thrown from pipeline')
-        exit(1)
+    
+    if args.lang in seamless:
+        try:
+            pipeline_class.multi_process(input_dir, args.audioname, args.lang)
+        except Exception as e:
+            print(f'{e} thrown from pipeline')
+            exit(1)
+    else:
+        try:
+            pipeline_ai.multi_process(input_dir, args.audioname, args.lang)
+        except Exception as e:
+            print(f'{e} thrown from pipeline')
+            exit(1)
 
 if __name__ == "__main__":
     main()
