@@ -8,6 +8,8 @@ import torch
 from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 from transformers import AutoProcessor, SeamlessM4Tv2Model
 from faster_whisper import WhisperModel
+from transformers import  AutoModelForSeq2SeqLM
+from transformers import NllbTokenizerFast
 from transformers.pipelines import pipeline
 import ssl
 from config import root_dir, languages,gender
@@ -41,22 +43,19 @@ class Pipeline:
     
     def translate(self,text,lang):
         try:
-            translate_model = MBartForConditionalGeneration.from_pretrained(
-        "facebook/mbart-large-50-one-to-many-mmt").to(self.device)
-            tokenizer = MBart50TokenizerFast.from_pretrained(
-        "facebook/mbart-large-50-one-to-many-mmt", src_lang="en_XX")
+            tokenizer = NllbTokenizerFast.from_pretrained("facebook/nllb-200-distilled-600M")
+            model = AutoModelForSeq2SeqLM.from_pretrained("facebook/nllb-200-distilled-600M").to(self.device)
         except Exception as e:  
             logger.error(f"Error occurred while loading the model/tokenizer: {str(e)}")
             raise typer.Exit(1)
         try:
             logger.info(f"Translating in {lang}")
-            model_inputs = tokenizer(text, return_tensors="pt").to(self.device)
+            inputs = tokenizer(text, return_tensors="pt", padding = True).to(self.device)
 
-            generated_tokens = translate_model.generate(
-                **model_inputs,
-                forced_bos_token_id=tokenizer.lang_code_to_id[lang]
-            )
-            text = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
+            translated_tokens = model.generate(
+    **inputs, forced_bos_token_id=tokenizer.lang_code_to_id[lang]
+)
+            text = tokenizer.batch_decode(translated_tokens, skip_special_tokens=True)
             logger.info("Translation Done")
             return text[0]
         except Exception as e:
