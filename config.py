@@ -2,19 +2,50 @@
 root_dir = "./data"
 languages = {
             "hindi": {
-                "translate": "hi_IN",
+                "translate": "hin_Deva",
                 "tts": "hin",
             },
         
             "bengali": {
-                "translate": "bn_IN",
+                "translate": "ben_Beng",
                 "tts": "ben",
             },
           
             "telugu": {
-                "translate": "te_IN",
+                "translate": "tel_Telu",
                 "tts": "tel",
             },
+             "assamese": {
+                "translate": "asm_Beng",
+            },
+            "bodo": {
+                "translate": "bod_Tibt",
+            },
+            "gujrati": {
+                "translate": "guj_Gujr",
+            },
+             "kannada": {
+                "translate": "kan_Knda",
+            },
+             "malyalam": {
+                "translate": "mal_Mlym",
+            },
+             "marathi": {
+                "translate": "mar_Deva",
+            },
+              "manipuri": {
+                "translate": "mni_Beng",
+            },
+               "odiya": {
+                "translate": "ory_Orya",
+            },
+              "punjabi": {
+                "translate": "pan_Guru",
+            },
+               "tamil": {
+                "translate": "tam_Taml",
+            },
+           
            
         }
 gender = {
@@ -23,18 +54,18 @@ gender = {
         }
 AIBharat_TTS = {
     'assamese':'as', 
-    'bengali':'bn', 
     'bodo':'brx', 
-    'hinglish':'en+hi', 
+    # 'hinglish':'en+hi', 
     'gujrati':'gu', 
-    'hindi':'hi', 
+    # 'hindi':'hi', 
     'kannada':'kn', 
     'malyalam':'ml', 
     'manipuri':'mni', 
     'marathi':'mr', 
-    'odiya':'or', 'punjabi':'pa',
-    'rajasthani':'raj', 
+    'odiya':'or', 
+    'punjabi':'pa',
+    # 'rajasthani':'raj', 
     'tamil':'ta', 
-    'telugu':'te'
+    # 'telugu':'te'
 }
 gpu_devices = [0, 1, 2] 

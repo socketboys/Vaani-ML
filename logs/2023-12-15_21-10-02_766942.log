@@ -1,0 +1,6 @@
+2023-12-15 21:10:02.769 | INFO     | scripts.pipeline_sts:<module>:27 - Running on darwin
+2023-12-15 21:10:02.770 | INFO     | scripts.pipeline_sts:process:85 - bengali process started
+2023-12-15 21:10:02.770 | INFO     | scripts.pipeline_sts:__init__:32 - Class initialized
+2023-12-15 21:10:02.770 | INFO     | scripts.pipeline_sts:__init__:38 - Device: cpu
+2023-12-15 21:10:02.770 | INFO     | scripts.pipeline_sts:start:65 - Starting Pipeline
+2023-12-15 21:10:02.771 | INFO     | scripts.pipeline_sts:tts:43 - Starting Speech to Speech
