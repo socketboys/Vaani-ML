@@ -3,7 +3,7 @@ import os
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QFileDialog, QComboBox
 from PyQt5.QtCore import QUrl
 from scripts import pipeline_class, pipeline_ai
-from config import root_dir
+from config import root_dir,languages
 from pytube import YouTube
 from ffmpeg import audio_extraction, mute, add_audio_track
 
@@ -77,18 +77,25 @@ class AudioProcessingApp(QWidget):
 
 
 
-        languages = [selected_language.lower()]  # Convert to lowercase to match with your seamless list
+        langs = [selected_language.lower()]  # Convert to lowercase to match with your seamless list
 
         try:
-            if any(lang in seamless for lang in languages):
-                pipeline_class.multi_process(input_dir, f"{input_video}.mp3", languages)
+            if any(lang in seamless for lang in langs):
+                pipeline_class.multi_process(input_dir, f"{input_video}.mp3", langs)
             else:
-                pipeline_ai.multi_process(input_dir, f"{input_video}.mp3", languages)
+                pipeline_ai.multi_process(input_dir, f"{input_video}.mp3", langs)
+            lang = langs[0]
+            lang= languages[lang]["tts"]
+            file = input_video
+            file_name = f"{root_dir}/audio/" + file + "_" + lang[:-1] + ".wav"
+            print(file_name)
             
         #     # Open the directory where the audio files are created
         #     output_directory = os.path.join(output_dir, audio_name)
         #     QUrl.fromLocalFile(output_directory).setScheme("file")
             # QDesktopServices.openUrl(QUrl.fromLocalFile(output_directory))
+            
+            add_audio_track(f"data/video/{input_video}_muted.mp4",file_name)
         except Exception as e:
             print(f'{e} thrown from pipeline')
             sys.exit(1)

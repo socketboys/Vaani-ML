@@ -4,16 +4,22 @@ languages = {
             "hindi": {
                 "translate": "hin_Deva",
                 "tts": "hin",
+                "female": 3,
+                "male": 1 
             },
         
             "bengali": {
                 "translate": "ben_Beng",
                 "tts": "ben",
+                "female": 3,
+                "male": 2  
             },
           
             "telugu": {
                 "translate": "tel_Telu",
                 "tts": "tel",
+                "female": 3,
+                "male": 2  
             },
              "assamese": {
                 "translate": "asm_Beng",
@@ -53,7 +59,7 @@ languages = {
             },
                "tamil": {
                 "translate": "tam_Taml",
-                "tts": "tam",
+                "tts": "",
             },
            
            
