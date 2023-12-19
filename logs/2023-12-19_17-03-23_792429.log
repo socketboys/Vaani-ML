@@ -1,0 +1,6 @@
+2023-12-19 17:03:23.793 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 17:03:23.794 | INFO     | scripts.pipeline_ai:process:198 - assamese process started
+2023-12-19 17:03:23.794 | INFO     | scripts.pipeline_ai:__init__:34 - Class initialized
+2023-12-19 17:03:23.794 | INFO     | scripts.pipeline_ai:__init__:40 - Device: cpu
+2023-12-19 17:03:23.795 | INFO     | scripts.pipeline_ai:start:166 - Starting Pipeline
+2023-12-19 17:03:23.795 | ERROR    | scripts.pipeline_ai:start:180 - Error while running pipeline:'Pipeline' object has no attribute 'lang'

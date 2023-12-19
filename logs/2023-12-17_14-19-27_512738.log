@@ -1,9 +1,0 @@
-2023-12-17 14:19:27.515 | INFO     | scripts.pipeline_class:<module>:26 - Running on darwin
-2023-12-17 14:19:27.519 | INFO     | scripts.pipeline_ai:<module>:27 - Running on darwin
-2023-12-17 14:19:27.520 | INFO     | scripts.pipeline_ai:process:201 - assamese process started
-2023-12-17 14:19:27.520 | INFO     | scripts.pipeline_ai:__init__:32 - Class initialized
-2023-12-17 14:19:27.520 | INFO     | scripts.pipeline_ai:__init__:38 - Device: cpu
-2023-12-17 14:19:27.520 | INFO     | scripts.pipeline_ai:start:128 - Starting Pipeline
-2023-12-17 14:19:27.520 | INFO     | scripts.pipeline_ai:translated_sub:70 - Creating Subtitles
-2023-12-17 14:19:27.520 | ERROR    | scripts.pipeline_ai:translated_sub:92 - Error while translating subtitles:'assamese'
-2023-12-17 14:19:27.520 | ERROR    | scripts.pipeline_ai:start:142 - Error while running pipeline:1

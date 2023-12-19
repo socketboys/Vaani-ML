@@ -1,0 +1,14 @@
+2023-12-19 17:21:58.717 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 17:21:58.717 | INFO     | scripts.pipeline_ai:process:198 - assamese process started
+2023-12-19 17:21:58.717 | INFO     | scripts.pipeline_ai:__init__:34 - Class initialized
+2023-12-19 17:21:58.717 | INFO     | scripts.pipeline_ai:__init__:40 - Device: cpu
+2023-12-19 17:21:58.717 | INFO     | scripts.pipeline_ai:start:166 - Starting Pipeline
+2023-12-19 17:21:58.722 | INFO     | scripts.pipeline_ai:transcibe:56 - Starting Transcription
+2023-12-19 17:22:29.467 | INFO     | scripts.pipeline_ai:transcibe:65 - Transciption Done
+2023-12-19 17:22:46.373 | INFO     | scripts.pipeline_ai:translate:97 - Translating in asm_Beng
+2023-12-19 17:22:50.204 | INFO     | scripts.pipeline_ai:translate:104 - Translation Done
+2023-12-19 17:22:56.909 | INFO     | scripts.pipeline_ai:translate:97 - Translating in asm_Beng
+2023-12-19 17:22:59.988 | INFO     | scripts.pipeline_ai:translate:104 - Translation Done
+2023-12-19 17:23:06.328 | INFO     | scripts.pipeline_ai:translate:97 - Translating in asm_Beng
+2023-12-19 17:23:08.926 | INFO     | scripts.pipeline_ai:translate:104 - Translation Done
+2023-12-19 17:23:09.053 | ERROR    | scripts.pipeline_ai:start:180 - Error while running pipeline:'Pipeline' object has no attribute 'translated_sub'

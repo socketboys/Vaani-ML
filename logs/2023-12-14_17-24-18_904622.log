@@ -1,9 +1,0 @@
-2023-12-14 17:24:18.907 | INFO     | scripts.pipeline_class:<module>:25 - Running on darwin
-2023-12-14 17:24:18.908 | INFO     | scripts.pipeline_class:process:175 - hindi process started
-2023-12-14 17:24:18.908 | INFO     | scripts.pipeline_class:__init__:30 - Class initialized
-2023-12-14 17:24:18.908 | INFO     | scripts.pipeline_class:__init__:36 - Device: cpu
-2023-12-14 17:24:18.909 | INFO     | scripts.pipeline_class:start:156 - Starting Pipeline
-2023-12-14 17:24:18.909 | INFO     | scripts.pipeline_class:transcibe:51 - Starting Transcription
-2023-12-14 17:24:37.031 | INFO     | scripts.pipeline_class:transcibe:60 - Transciption Done
-2023-12-14 17:24:50.703 | ERROR    | scripts.pipeline_class:transcibe:77 - Error occured while transcribing text:[Errno 17] File exists: './data/input/input.srt'
-2023-12-14 17:24:50.704 | ERROR    | scripts.pipeline_class:start:170 - Error while running pipeline:1

@@ -1,7 +1,0 @@
-2023-12-19 01:28:44.580 | INFO     | scripts.pipeline_class:<module>:28 - Running on win32
-2023-12-19 01:28:44.580 | INFO     | scripts.pipeline_ai:<module>:27 - Running on win32
-2023-12-19 01:28:44.580 | INFO     | scripts.pipeline_ai:<module>:27 - Running on win32
-2023-12-19 01:28:44.580 | INFO     | scripts.pipeline_class:multi_process:196 - Multiprocessing started
-2023-12-19 01:28:44.580 | INFO     | scripts.pipeline_class:multi_process:196 - Multiprocessing started
-2023-12-19 01:28:44.580 | INFO     | scripts.pipeline_class:get_gender:180 - Getting gender
-2023-12-19 01:28:44.580 | INFO     | scripts.pipeline_class:get_gender:180 - Getting gender

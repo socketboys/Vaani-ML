@@ -1,3 +1,0 @@
-2023-12-17 14:18:07.403 | INFO     | scripts.pipeline_ai:<module>:27 - Running on darwin
-2023-12-17 14:18:07.403 | INFO     | scripts.pipeline_ai:multi_process:207 - Multiprocessing started
-2023-12-17 14:18:07.403 | INFO     | scripts.pipeline_ai:get_gender:191 - Getting gender

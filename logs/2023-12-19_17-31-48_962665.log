@@ -1,0 +1,17 @@
+2023-12-19 17:31:48.963 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 17:31:48.964 | INFO     | scripts.pipeline_ai:process:199 - assamese process started
+2023-12-19 17:31:48.965 | INFO     | scripts.pipeline_ai:__init__:34 - Class initialized
+2023-12-19 17:31:48.965 | INFO     | scripts.pipeline_ai:__init__:40 - Device: cpu
+2023-12-19 17:31:48.965 | INFO     | scripts.pipeline_ai:start:167 - Starting Pipeline
+2023-12-19 17:31:48.966 | INFO     | scripts.pipeline_ai:transcibe:56 - Starting Transcription
+2023-12-19 17:32:22.259 | INFO     | scripts.pipeline_ai:transcibe:65 - Transciption Done
+2023-12-19 17:32:40.250 | INFO     | scripts.pipeline_ai:translate:98 - Translating in asm_Beng
+2023-12-19 17:32:43.529 | INFO     | scripts.pipeline_ai:translate:105 - Translation Done
+2023-12-19 17:32:50.709 | INFO     | scripts.pipeline_ai:translate:98 - Translating in asm_Beng
+2023-12-19 17:32:53.705 | INFO     | scripts.pipeline_ai:translate:105 - Translation Done
+2023-12-19 17:33:01.110 | INFO     | scripts.pipeline_ai:translate:98 - Translating in asm_Beng
+2023-12-19 17:33:04.043 | INFO     | scripts.pipeline_ai:translate:105 - Translation Done
+2023-12-19 17:33:04.220 | INFO     | scripts.pipeline_ai:tts:141 - Starting Text to Speech
+2023-12-19 17:33:27.889 | INFO     | scripts.pipeline_ai:tts:159 - Text to Speech done
+2023-12-19 17:33:27.889 | INFO     | scripts.pipeline_ai:start:179 - Pipeline Done
+2023-12-19 17:33:27.891 | INFO     | scripts.pipeline_ai:process:201 - assamese process completed

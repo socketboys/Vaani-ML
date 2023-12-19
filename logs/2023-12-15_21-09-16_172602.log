@@ -1,6 +1,0 @@
-2023-12-15 21:09:16.175 | INFO     | scripts.pipeline_sts:<module>:27 - Running on darwin
-2023-12-15 21:09:16.176 | INFO     | scripts.pipeline_sts:process:89 - bengali process started
-2023-12-15 21:09:16.176 | INFO     | scripts.pipeline_sts:__init__:32 - Class initialized
-2023-12-15 21:09:16.176 | INFO     | scripts.pipeline_sts:__init__:38 - Device: cpu
-2023-12-15 21:09:16.176 | INFO     | scripts.pipeline_sts:start:65 - Starting Pipeline
-2023-12-15 21:09:16.177 | ERROR    | scripts.pipeline_sts:start:74 - Error while running pipeline:'Pipeline' object has no attribute 'translated_sub'

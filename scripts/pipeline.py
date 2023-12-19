@@ -7,8 +7,8 @@ import scipy
 import torch
 from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 from transformers import VitsModel, AutoTokenizer
-from whisper import load_model, load_audio
-from whisper.utils import get_writer
+# from whisper import load_model, load_audio
+# from whisper.utils import get_writer
 import ssl
 from config import root_dir
 from loguru import logger

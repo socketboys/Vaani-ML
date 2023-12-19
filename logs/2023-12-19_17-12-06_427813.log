@@ -1,0 +1,23 @@
+2023-12-19 17:12:06.427 | INFO     | scripts.pipeline_class:<module>:28 - Running on win32
+2023-12-19 17:12:06.427 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 17:12:06.427 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 17:12:06.435 | INFO     | scripts.pipeline_ai:process:198 - assamese process started
+2023-12-19 17:12:06.435 | INFO     | scripts.pipeline_ai:process:198 - assamese process started
+2023-12-19 17:12:06.435 | INFO     | scripts.pipeline_ai:__init__:34 - Class initialized
+2023-12-19 17:12:06.435 | INFO     | scripts.pipeline_ai:__init__:34 - Class initialized
+2023-12-19 17:12:06.435 | INFO     | scripts.pipeline_ai:__init__:40 - Device: cpu
+2023-12-19 17:12:06.435 | INFO     | scripts.pipeline_ai:__init__:40 - Device: cpu
+2023-12-19 17:12:06.435 | INFO     | scripts.pipeline_ai:start:166 - Starting Pipeline
+2023-12-19 17:12:06.435 | INFO     | scripts.pipeline_ai:start:166 - Starting Pipeline
+2023-12-19 17:12:06.435 | INFO     | scripts.pipeline_ai:transcibe:56 - Starting Transcription
+2023-12-19 17:12:06.435 | INFO     | scripts.pipeline_ai:transcibe:56 - Starting Transcription
+2023-12-19 17:12:37.756 | INFO     | scripts.pipeline_ai:transcibe:65 - Transciption Done
+2023-12-19 17:12:37.756 | INFO     | scripts.pipeline_ai:transcibe:65 - Transciption Done
+2023-12-19 17:12:57.296 | INFO     | scripts.pipeline_ai:translate:97 - Translating in assamese
+2023-12-19 17:12:57.296 | INFO     | scripts.pipeline_ai:translate:97 - Translating in assamese
+2023-12-19 17:12:57.341 | ERROR    | scripts.pipeline_ai:translate:107 - Error while translating text:'assamese'
+2023-12-19 17:12:57.341 | ERROR    | scripts.pipeline_ai:translate:107 - Error while translating text:'assamese'
+2023-12-19 17:12:57.342 | ERROR    | scripts.pipeline_ai:transcibe:84 - Error occured while transcribing text:1
+2023-12-19 17:12:57.342 | ERROR    | scripts.pipeline_ai:transcibe:84 - Error occured while transcribing text:1
+2023-12-19 17:12:57.343 | ERROR    | scripts.pipeline_ai:start:180 - Error while running pipeline:1
+2023-12-19 17:12:57.343 | ERROR    | scripts.pipeline_ai:start:180 - Error while running pipeline:1

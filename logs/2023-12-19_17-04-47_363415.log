@@ -1,0 +1,5 @@
+2023-12-19 17:04:47.363 | INFO     | scripts.pipeline_class:<module>:28 - Running on win32
+2023-12-19 17:04:47.376 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 17:04:47.376 | INFO     | scripts.pipeline_ai:multi_process:204 - Multiprocessing started in Pipeline AI
+2023-12-19 17:04:47.376 | INFO     | scripts.pipeline_ai:get_gender:188 - Getting gender
+2023-12-19 17:04:54.723 | INFO     | scripts.pipeline_ai:get_gender:193 - male

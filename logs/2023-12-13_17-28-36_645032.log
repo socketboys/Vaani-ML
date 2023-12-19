@@ -1,3 +1,0 @@
-2023-12-13 17:28:36.647 | INFO     | scripts.pipeline_class:<module>:25 - Running on darwin
-2023-12-13 17:28:36.648 | INFO     | scripts.pipeline_class:multi_process:181 - Multiprocessing started
-2023-12-13 17:33:42.447 | INFO     | scripts.pipeline_class:multi_process:191 - Multiprocessing completed and time taken 305.79466819763184

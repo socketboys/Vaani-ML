@@ -1,0 +1,8 @@
+2023-12-19 17:04:57.705 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 17:04:57.707 | INFO     | scripts.pipeline_ai:process:198 - assamese process started
+2023-12-19 17:04:57.707 | INFO     | scripts.pipeline_ai:__init__:34 - Class initialized
+2023-12-19 17:04:57.707 | INFO     | scripts.pipeline_ai:__init__:40 - Device: cpu
+2023-12-19 17:04:57.707 | INFO     | scripts.pipeline_ai:start:166 - Starting Pipeline
+2023-12-19 17:04:57.707 | INFO     | scripts.pipeline_ai:transcibe:56 - Starting Transcription
+2023-12-19 17:05:15.986 | ERROR    | scripts.pipeline_ai:transcibe:84 - Error occured while transcribing text:[Errno 2] No such file or directory: './data/input/x.mp3assamese'
+2023-12-19 17:05:15.986 | ERROR    | scripts.pipeline_ai:start:180 - Error while running pipeline:1

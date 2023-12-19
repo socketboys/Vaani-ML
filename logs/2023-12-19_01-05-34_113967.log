@@ -1,7 +1,0 @@
-2023-12-19 01:05:34.116 | INFO     | scripts.pipeline_ai:<module>:27 - Running on darwin
-2023-12-19 01:05:34.117 | INFO     | scripts.pipeline_ai:multi_process:207 - Multiprocessing started
-2023-12-19 01:05:34.117 | INFO     | scripts.pipeline_ai:get_gender:191 - Getting gender
-2023-12-19 01:05:40.872 | INFO     | scripts.pipeline_ai:get_gender:196 - male
-2023-12-19 01:05:40.922 | INFO     | scripts.pipeline_ai:transcibe:159 - Starting Transcription
-2023-12-19 01:05:52.351 | INFO     | scripts.pipeline_ai:transcibe:168 - Transciption Done
-2023-12-19 01:05:57.710 | ERROR    | scripts.pipeline_ai:transcibe:185 - Error occured while transcribing text:[Errno 17] File exists: './data/input/x.srt'

@@ -1,4 +1,0 @@
-2023-12-15 21:08:15.843 | INFO     | scripts.pipeline_sts:<module>:27 - Running on darwin
-2023-12-15 21:08:15.844 | INFO     | scripts.pipeline_sts:multi_process:95 - Multiprocessing started
-2023-12-15 21:08:15.844 | INFO     | scripts.pipeline_sts:get_gender:79 - Getting gender
-2023-12-15 21:08:21.974 | INFO     | scripts.pipeline_sts:get_gender:84 - male
