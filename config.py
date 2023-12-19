@@ -17,33 +17,43 @@ languages = {
             },
              "assamese": {
                 "translate": "asm_Beng",
+                "tts": "asm",
             },
             "bodo": {
                 "translate": "bod_Tibt",
+                "tts": "bod",
             },
             "gujrati": {
                 "translate": "guj_Gujr",
+                "tts": "guj",
             },
              "kannada": {
                 "translate": "kan_Knda",
+                "tts": "kan",
             },
              "malyalam": {
                 "translate": "mal_Mlym",
+                "tts": "mal",
             },
              "marathi": {
                 "translate": "mar_Deva",
+                "tts": "mar",
             },
               "manipuri": {
                 "translate": "mni_Beng",
+                "tts": "man",
             },
                "odiya": {
                 "translate": "ory_Orya",
+                "tts": "odi",
             },
               "punjabi": {
                 "translate": "pan_Guru",
+                "tts": "pun",
             },
                "tamil": {
                 "translate": "tam_Taml",
+                "tts": "tam",
             },
            
            
