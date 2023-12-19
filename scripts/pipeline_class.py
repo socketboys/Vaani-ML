@@ -5,7 +5,7 @@ from re import search
 import typer
 import scipy
 import torch
-from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+# from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 from transformers import AutoProcessor, SeamlessM4Tv2Model
 from faster_whisper import WhisperModel
 from transformers import  AutoModelForSeq2SeqLM
