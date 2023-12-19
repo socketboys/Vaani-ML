@@ -17,7 +17,7 @@ def main():
     if len(args.lang) == 0:
         parser.error("No languages detected")
     
-    if args.lang in seamless:
+    if any(lang in seamless for lang in args.lang):
         try:
             pipeline_class.multi_process(input_dir, args.audioname, args.lang)
         except Exception as e:

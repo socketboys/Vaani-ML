@@ -5,7 +5,7 @@ from re import search
 import typer
 import scipy
 import torch
-from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+# from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 from transformers import AutoProcessor, SeamlessM4Tv2Model
 from faster_whisper import WhisperModel
 from transformers import  AutoModelForSeq2SeqLM
@@ -105,7 +105,7 @@ class Pipeline:
             output = model.generate(**text_inputs, tgt_lang=lang, speaker_id=gender)[0].cpu().numpy().squeeze()
 
             scipy.io.wavfile.write(
-                file_name, rate=model.config.sampling_rate, data=output)
+                file_name, rate=16000, data=output)
             logger.info("Text to Speech done")
 
         except Exception as e:
@@ -124,7 +124,7 @@ class Pipeline:
             self.translated_sub(file, self.language)
             translated_transcript = " ".join(self.translated)
             
-            self.tts(file, translated_transcript, languages[self.language]["tts"],gender[self.gender])
+            self.tts(file, translated_transcript, languages[self.language]["tts"],languages[self.language][self.gender])
             self.translated.clear()
             logger.info("Pipeline Done")
         except Exception as e:
@@ -193,7 +193,10 @@ def process(input_path,audio_name,lang,gender):
 
 def multi_process(input_path,audio,langs):
     start_time = time.time()
-    logger.info("Multiprocessing started")
+    logger.info("Multiprocessing started in pipeline class")
+    
+    gender = get_gender(audio,input_path)
+    transcript = transcibe(input_path, audio)
     
     gender = get_gender(audio,input_path)
     transcript = transcibe(input_path, audio)
