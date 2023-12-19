@@ -86,10 +86,9 @@ class Pipeline:
         
     
     def translate(self,text,lang):
-        traslate_model = "../cashed_models/nllb-200-distilled-600M"
         try:
-            tokenizer = NllbTokenizerFast.from_pretrained(traslate_model)
-            model = AutoModelForSeq2SeqLM.from_pretrained(traslate_model).to(self.device)
+            tokenizer = NllbTokenizerFast.from_pretrained("facebook/nllb-200-distilled-600M")
+            model = AutoModelForSeq2SeqLM.from_pretrained("facebook/nllb-200-distilled-600M").to(self.device)
         except Exception as e:  
             logger.error(f"Error occurred while loading the model/tokenizer: {str(e)}")
             raise typer.Exit(1)
