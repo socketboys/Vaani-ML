@@ -1,0 +1,15 @@
+2023-12-19 11:59:34.980 | INFO     | scripts.pipeline_class:<module>:28 - Running on win32
+2023-12-19 11:59:34.980 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 11:59:34.980 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 11:59:34.980 | INFO     | scripts.pipeline_ai:multi_process:201 - Multiprocessing started in Pipeline AI
+2023-12-19 11:59:34.980 | INFO     | scripts.pipeline_ai:multi_process:201 - Multiprocessing started in Pipeline AI
+2023-12-19 11:59:34.980 | INFO     | scripts.pipeline_ai:get_gender:185 - Getting gender
+2023-12-19 11:59:34.980 | INFO     | scripts.pipeline_ai:get_gender:185 - Getting gender
+2023-12-19 11:59:45.274 | INFO     | scripts.pipeline_ai:get_gender:190 - male
+2023-12-19 11:59:45.274 | INFO     | scripts.pipeline_ai:get_gender:190 - male
+2023-12-19 11:59:45.286 | INFO     | scripts.pipeline_ai:transcibe:153 - Starting Transcription
+2023-12-19 11:59:45.286 | INFO     | scripts.pipeline_ai:transcibe:153 - Starting Transcription
+2023-12-19 12:00:15.197 | INFO     | scripts.pipeline_ai:transcibe:162 - Transciption Done
+2023-12-19 12:00:15.197 | INFO     | scripts.pipeline_ai:transcibe:162 - Transciption Done
+2023-12-19 12:01:17.119 | INFO     | scripts.pipeline_ai:multi_process:214 - Multiprocessing completed and time taken 102.13863158226013
+2023-12-19 12:01:17.119 | INFO     | scripts.pipeline_ai:multi_process:214 - Multiprocessing completed and time taken 102.13863158226013
