@@ -5,7 +5,7 @@ from re import search
 import typer
 import scipy
 import torch
-from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+# from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 from faster_whisper import WhisperModel
 from transformers.pipelines import pipeline
 from transformers import  AutoModelForSeq2SeqLM
@@ -94,7 +94,7 @@ class Pipeline:
     def tts(self,file, text, lang):
         try:
             logger.info("Starting Text to Speech")
-            file_name = f"{root_dir}/audio/" + file + "_" + lang[-3:-1] + ".wav"
+            file_name = f"{root_dir}/audio/" + file + "_" + lang + ".wav"
             # try:
             #    processor = AutoProcessor.from_pretrained("facebook/seamless-m4t-v2-large")
             #    model = SeamlessM4Tv2Model.from_pretrained("facebook/seamless-m4t-v2-large").to(self.device)
@@ -107,14 +107,9 @@ class Pipeline:
 
             # scipy.io.wavfile.write(
             #     file_name, rate=model.config.sampling_rate, data=output)
-            str = f'tts --text "{text}"     --config_path  models/v1/{AIBharat_TTS[lang]}/fastpitch/config.json\
-                --model_path models/v1/{AIBharat_TTS[lang]}/fastpitch/best_model.pth \
-                --out_path {file_name} \
-                --speaker_idx "{self.gender}" \
-                --vocoder_path models/v1/{AIBharat_TTS[lang]}/hifigan/best_model.pth \
-                --vocoder_config_path models/v1/{AIBharat_TTS[lang]}/hifigan/config.json'
+            command = f'tts --text "{text}" --config_path  models/v1/{AIBharat_TTS[lang]}/fastpitch/config.json --model_path models/v1/{AIBharat_TTS[lang]}/fastpitch/best_model.pth --out_path {file_name} --speaker_idx "{self.gender}" --vocoder_path models/v1/{AIBharat_TTS[lang]}/hifigan/best_model.pth --vocoder_config_path models/v1/{AIBharat_TTS[lang]}/hifigan/config.json'
 
-            subprocess.run(str)
+            subprocess.run(command)
 
             logger.info("Text to Speech done")
 
