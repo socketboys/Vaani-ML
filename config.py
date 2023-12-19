@@ -1,5 +1,5 @@
-# root_dir = "../external" #prod
-root_dir = "./data"
+root_dir = "../external" #prod
+# root_dir = "./data"
 languages = {
             "hindi": {
                 "translate": "hin_Deva",

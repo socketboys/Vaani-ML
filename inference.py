@@ -7,6 +7,21 @@ input_dir = f"{root_dir}/input/"
 
 seamless = ["hindi","bengali","telugu"]
 
+def run(langs:List, audioname:str):
+
+    if any(lang in seamless for lang in langs):
+        try:
+            pipeline_class.multi_process(input_dir, audioname, langs)
+        except Exception as e:
+            print(f'{e} thrown from pipeline')
+            exit(1)
+    else:
+        try:
+            pipeline_ai.multi_process(input_dir, audioname, langs)
+        except Exception as e:
+            print(f'{e} thrown from pipeline')
+            exit(1)
+
 def main():
     parser = argparse.ArgumentParser(description="Process audio input with specified languages")
     parser.add_argument("--lang", nargs="+", required=True, help="List of languages")
