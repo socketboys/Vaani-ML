@@ -1,0 +1,8 @@
+2023-12-19 01:18:51.083 | INFO     | scripts.pipeline_class:<module>:28 - Running on win32
+2023-12-19 01:18:51.091 | INFO     | scripts.pipeline_ai:<module>:27 - Running on win32
+2023-12-19 01:18:51.091 | INFO     | scripts.pipeline_ai:multi_process:207 - Multiprocessing started
+2023-12-19 01:18:51.099 | INFO     | scripts.pipeline_ai:get_gender:191 - Getting gender
+2023-12-19 01:19:09.743 | INFO     | scripts.pipeline_ai:get_gender:196 - male
+2023-12-19 01:19:09.743 | INFO     | scripts.pipeline_ai:transcibe:159 - Starting Transcription
+2023-12-19 01:19:53.384 | INFO     | scripts.pipeline_ai:transcibe:168 - Transciption Done
+2023-12-19 01:20:05.617 | ERROR    | scripts.pipeline_ai:transcibe:185 - Error occured while transcribing text:[Errno 17] File exists: './data/input/x.srt'
