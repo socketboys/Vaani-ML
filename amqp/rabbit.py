@@ -1,6 +1,7 @@
 import pika
 import json
-from file_ops import download_file
+from file_ops import download_file, clean_residual_files
+from spaces import Spaces
 # from scripts.pipeline_ai import multi_process
 
 
@@ -8,6 +9,8 @@ class Rabbit:
     producer_channel: pika.adapters.blocking_connection.BlockingChannel = None
     POOL_EXCHANGE = 'pool'
     POOL_ROUTING_KEY = 'poolkey'
+
+    space: Spaces
 
     def callback(self, channel, method, properties, body):
         msg = json.loads(body)
@@ -18,11 +21,11 @@ class Rabbit:
         print(msg['email_id'])
 
         # download function
-        download_file(msg["link"], msg["euid"] + , "/data/input")
+        extension = download_file(url=msg["link"], filename=f"/data/input{msg['euid']}")
 
-        # multi_process(msg.input_dir, msg.audioname, msg.lang)
-        # clean residual files
-        # upload to spaces
+        # multi_process(msg["input_dir"], msg["audioname"], msg["lang"])
+        clean_residual_files(filename=msg['euid'], extension=extension)
+        self.space.upload(extension=extension)
         # publish function
 
         self.producer_channel.basic_publish(exchange=Rabbit.POOL_EXCHANGE, routing_key=Rabbit.POOL_ROUTING_KEY, body="translation done", )
@@ -36,6 +39,8 @@ class Rabbit:
         TRANSLATION_EXCHANGE = 'translation'
 
         POOL_QUEUE_NAME = 'update_pool'
+
+        self.space = Spaces()
 
         self.connection = pika.BlockingConnection(pika.URLParameters(RABBIT_URL))
 
