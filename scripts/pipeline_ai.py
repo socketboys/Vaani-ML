@@ -204,7 +204,7 @@ def process(input_path,audio_name,lang,gender):
 
 def multi_process(input_path,audio,langs):
     start_time = time.time()
-    logger.info("Multiprocessing started")
+    logger.info("Multiprocessing started in Pipeline AI") 
     
     gender = get_gender(audio,input_path)
     transcript = transcibe(input_path, audio)
