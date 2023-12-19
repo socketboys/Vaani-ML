@@ -1,0 +1,19 @@
+2023-12-19 09:49:13.656 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 09:49:13.656 | INFO     | scripts.pipeline_class:process:190 - hindi process started
+2023-12-19 09:49:13.657 | INFO     | scripts.pipeline_class:__init__:33 - Class initialized
+2023-12-19 09:49:13.657 | INFO     | scripts.pipeline_class:__init__:39 - Device: cpu
+2023-12-19 09:49:13.657 | INFO     | scripts.pipeline_class:start:117 - Starting Pipeline
+2023-12-19 09:49:13.657 | INFO     | scripts.pipeline_class:translated_sub:68 - Creating Subtitles
+2023-12-19 09:49:13.657 | INFO     | scripts.pipeline_class:translated_sub:73 - Reaching out to translator function...
+2023-12-19 09:49:22.143 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-19 09:49:26.095 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 09:49:32.769 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-19 09:49:35.481 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 09:49:42.269 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-19 09:49:45.511 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 09:49:45.617 | INFO     | scripts.pipeline_class:translated_sub:87 - Translated.
+2023-12-19 09:49:45.617 | INFO     | scripts.pipeline_class:translated_sub:88 - Subtitles are created
+2023-12-19 09:49:45.617 | INFO     | scripts.pipeline_class:tts:95 - Starting Text to Speech
+2023-12-19 09:50:38.948 | ERROR    | scripts.pipeline_class:tts:101 - Error while loading TTS model:(MaxRetryError('HTTPSConnectionPool(host=\'cdn-lfs-us-1.huggingface.co\', port=443): Max retries exceeded with url: /repos/4e/f5/4ef57d60be7a4fc4fe11275a66ebde717719a364398c50716805a57f9cc29567/85cab984fbc111f8713827c440499453b9e66f262862866eeed8725c302ba2ac?response-content-disposition=attachment%3B+filename*%3DUTF-8%27%27model-00001-of-00002.safetensors%3B+filename%3D%22model-00001-of-00002.safetensors%22%3B&Expires=1703218790&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTcwMzIxODc5MH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy11cy0xLmh1Z2dpbmdmYWNlLmNvL3JlcG9zLzRlL2Y1LzRlZjU3ZDYwYmU3YTRmYzRmZTExMjc1YTY2ZWJkZTcxNzcxOWEzNjQzOThjNTA3MTY4MDVhNTdmOWNjMjk1NjcvODVjYWI5ODRmYmMxMTFmODcxMzgyN2M0NDA0OTk0NTNiOWU2NmYyNjI4NjI4NjZlZWVkODcyNWMzMDJiYTJhYz9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPSoifV19&Signature=Fq-kMNVKdKjWuzRVwzkR7qCnxynii2WtpLLNVMYd0wkCpXeRj~x3tbHoy7MJrtggq5PV0xMh8Da1VVrXZw1u7Cx5gLsG-cvcLnKohMSBMo5v31CWB6iKODJpoBpzLaZseGJAPyXZqbyMDZ0iBZZWWfMSV58DaOKGYG~50qGHg6~RijjLv2jXhptUFXxF-D52BPC9cozUD8j~syl8YVmj1RcXXhAVdhdN~uY8Za3KEyvkbPjhUIwULGI3~~y7uirXc0N5eSKYc4pkO4lcgTP8Sk3zLxjlNDVqICdXH0tBEamFe~YutGweaHhiu2fFjb8T5zVhI0qKLVwZt~lD9lUWnw__&Key-Pair-Id=KCD77M1F0VK2B (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000271EBFD1390>: Failed to resolve \'cdn-lfs-us-1.huggingface.co\' ([Errno 11001] getaddrinfo failed)"))'), '(Request ID: 6d4fb90a-a4ff-4e3b-af35-57a77f9bf298)')
+2023-12-19 09:50:38.949 | ERROR    | scripts.pipeline_class:tts:112 - Error while TTS:1
+2023-12-19 09:50:38.950 | ERROR    | scripts.pipeline_class:start:131 - Error while running pipeline:1

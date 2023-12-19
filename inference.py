@@ -25,7 +25,7 @@ def main():
             exit(1)
     else:
         try:
-            pipeline_class.multi_process(input_dir, args.audioname, args.lang)
+            pipeline_ai.multi_process(input_dir, args.audioname, args.lang)
         except Exception as e:
             print(f'{e} thrown from pipeline')
             exit(1)

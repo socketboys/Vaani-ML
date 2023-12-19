@@ -91,7 +91,7 @@ class Pipeline:
             logger.error(f"Error while translating subtitles:{str(e)}")
             raise typer.Exit(1)
             
-    def tts(self,file, text, lang,gender):
+    def tts(self,file, text, lang):
         try:
             logger.info("Starting Text to Speech")
             file_name = f"{root_dir}/audio/" + file + "_" + lang[-3:-1] + ".wav"
@@ -107,14 +107,9 @@ class Pipeline:
 
             # scipy.io.wavfile.write(
             #     file_name, rate=model.config.sampling_rate, data=output)
-            str = f'tts --text "{text}"     --config_path  models/v1/{AIBharat_TTS[lang]}/fastpitch/config.json\
-                --model_path models/v1/{lang}/fastpitch/best_model.pth \
-                --out_path {file_name} \
-                --speaker_idx "{gender}" \
-                --vocoder_path models/v1/{lang}/hifigan/best_model.pth \
-                --vocoder_config_path models/v1/{lang}/hifigan/config.json'
+            command = f'tts --text "{text}" --config_path  models/v1/{AIBharat_TTS[lang]}/fastpitch/config.json --model_path models/v1/{AIBharat_TTS[lang]}/fastpitch/best_model.pth --out_path {file_name} --speaker_idx "{self.gender}" --vocoder_path models/v1/{AIBharat_TTS[lang]}/hifigan/best_model.pth --vocoder_config_path models/v1/{AIBharat_TTS[lang]}/hifigan/config.json'
 
-            subprocess.run(str)
+            subprocess.run(command)
 
             logger.info("Text to Speech done")
 
@@ -134,7 +129,7 @@ class Pipeline:
             self.translated_sub(file, self.language)
             translated_transcript = " ".join(self.translated)
             
-            self.tts(file, translated_transcript, languages[self.language]["tts"],self.gender)
+            self.tts(file, translated_transcript, self.language)
             self.translated.clear()
             logger.info("Pipeline Done")
         except Exception as e:
