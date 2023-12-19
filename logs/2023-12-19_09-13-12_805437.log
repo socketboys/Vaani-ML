@@ -1,0 +1,7 @@
+2023-12-19 09:13:12.808 | INFO     | scripts.pipeline_class:<module>:28 - Running on darwin
+2023-12-19 09:13:12.813 | INFO     | scripts.pipeline_ai:<module>:29 - Running on darwin
+2023-12-19 09:13:12.814 | INFO     | scripts.pipeline_ai:multi_process:206 - Multiprocessing started in Pipeline AI
+2023-12-19 09:13:12.814 | INFO     | scripts.pipeline_ai:get_gender:190 - Getting gender
+2023-12-19 09:13:19.048 | INFO     | scripts.pipeline_ai:get_gender:195 - male
+2023-12-19 09:13:19.096 | INFO     | scripts.pipeline_ai:transcibe:158 - Starting Transcription
+2023-12-19 09:13:30.094 | INFO     | scripts.pipeline_ai:transcibe:167 - Transciption Done

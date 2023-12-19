@@ -1,0 +1,18 @@
+2023-12-19 11:48:40.968 | INFO     | scripts.pipeline_class:<module>:28 - Running on darwin
+2023-12-19 11:48:40.976 | INFO     | scripts.pipeline_ai:<module>:29 - Running on darwin
+2023-12-19 11:48:40.976 | INFO     | scripts.pipeline_ai:process:196 - assamese process started
+2023-12-19 11:48:40.976 | INFO     | scripts.pipeline_ai:__init__:34 - Class initialized
+2023-12-19 11:48:40.977 | INFO     | scripts.pipeline_ai:__init__:40 - Device: cpu
+2023-12-19 11:48:40.977 | INFO     | scripts.pipeline_ai:start:123 - Starting Pipeline
+2023-12-19 11:48:40.977 | INFO     | scripts.pipeline_ai:translated_sub:69 - Creating Subtitles
+2023-12-19 11:48:40.977 | INFO     | scripts.pipeline_ai:translated_sub:74 - Reaching out to translator function...
+2023-12-19 11:48:55.732 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 11:48:57.449 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 11:49:10.005 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 11:49:11.608 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 11:49:24.099 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 11:49:25.638 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 11:49:25.704 | INFO     | scripts.pipeline_ai:translated_sub:88 - Translated.
+2023-12-19 11:49:25.705 | INFO     | scripts.pipeline_ai:translated_sub:89 - Subtitles are created
+2023-12-19 11:49:25.705 | INFO     | scripts.pipeline_ai:tts:96 - Starting Text to Speech
+2023-12-19 11:49:25.729 | ERROR    | scripts.pipeline_ai:start:137 - Error while running pipeline:'str' object is not callable

@@ -1,0 +1,8 @@
+2023-12-19 16:01:42.820 | INFO     | scripts.pipeline_class:<module>:28 - Running on darwin
+2023-12-19 16:01:42.824 | INFO     | scripts.pipeline_ai:<module>:29 - Running on darwin
+2023-12-19 16:01:42.825 | INFO     | scripts.pipeline_class:multi_process:196 - Multiprocessing started in pipeline class
+2023-12-19 16:01:42.825 | INFO     | scripts.pipeline_class:get_gender:180 - Getting gender
+2023-12-19 16:02:15.032 | INFO     | scripts.pipeline_class:get_gender:185 - male
+2023-12-19 16:02:15.066 | INFO     | scripts.pipeline_class:transcibe:148 - Starting Transcription
+2023-12-19 16:02:15.067 | ERROR    | scripts.pipeline_class:transcibe:154 - Invalid model size 'base-v3', expected one of: tiny.en, tiny, base.en, base, small.en, small, medium.en, medium, large-v1, large-v2, large thrown while loading whisper model
+2023-12-19 16:02:15.067 | ERROR    | scripts.pipeline_class:transcibe:174 - Error occured while transcribing text:1

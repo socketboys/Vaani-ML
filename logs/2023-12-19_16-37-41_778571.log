@@ -1,0 +1,19 @@
+2023-12-19 16:37:41.781 | INFO     | scripts.pipeline_ai:<module>:29 - Running on darwin
+2023-12-19 16:37:41.782 | INFO     | scripts.pipeline_class:process:190 - hindi process started
+2023-12-19 16:37:41.782 | INFO     | scripts.pipeline_class:__init__:33 - Class initialized
+2023-12-19 16:37:41.782 | INFO     | scripts.pipeline_class:__init__:39 - Device: cpu
+2023-12-19 16:37:41.782 | INFO     | scripts.pipeline_class:start:117 - Starting Pipeline
+2023-12-19 16:37:41.782 | INFO     | scripts.pipeline_class:translated_sub:68 - Creating Subtitles
+2023-12-19 16:37:41.782 | INFO     | scripts.pipeline_class:translated_sub:73 - Reaching out to translator function...
+2023-12-19 16:37:59.993 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-19 16:38:02.039 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 16:38:18.553 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-19 16:38:19.965 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 16:38:36.515 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-19 16:38:38.358 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 16:38:38.438 | INFO     | scripts.pipeline_class:translated_sub:87 - Translated.
+2023-12-19 16:38:38.439 | INFO     | scripts.pipeline_class:translated_sub:88 - Subtitles are created
+2023-12-19 16:38:38.439 | INFO     | scripts.pipeline_class:tts:95 - Starting Text to Speech
+2023-12-19 16:39:50.275 | INFO     | scripts.pipeline_class:tts:109 - Text to Speech done
+2023-12-19 16:39:50.972 | INFO     | scripts.pipeline_class:start:129 - Pipeline Done
+2023-12-19 16:39:50.972 | INFO     | scripts.pipeline_class:process:192 - hindi process completed
