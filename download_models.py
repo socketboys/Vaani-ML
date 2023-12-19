@@ -13,8 +13,8 @@ def download_and_extract_model(model, download_link, output_dir):
 
 def main():
     link = 'https://github.com/AI4Bharat/Indic-TTS/releases/download/v1-checkpoints-release/'
-    models = ['as']
-    # models = ['as', 'brx', 'en+hi', 'gu', 'kn', 'ml', 'mni', 'mr', 'or', 'pa', 'raj', 'ta']
+    # models = ['as']
+    models = ['as', 'brx', 'gu', 'kn', 'ml', 'mni', 'mr', 'or', 'pa', 'ta']
 
     output_directory = 'models/v1/'
 
