@@ -51,10 +51,10 @@ class AudioProcessingApp(QWidget):
         ys = yt.streams.get_highest_resolution()
         title = yt.title
         ys.download(f"{root_dir}/video/")
-        
+        default_name = ys.default_filename
         path = f"{root_dir}/video/"+title
         # os.rename(path, path.strip())
-        return title
+        return default_name[:-4]
         
 
 
