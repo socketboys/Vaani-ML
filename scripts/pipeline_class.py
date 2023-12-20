@@ -56,7 +56,7 @@ class Pipeline:
             try:
                 model_size = 'large-v2'
                 #use float16 for gpu
-                model = WhisperModel(model_size, device='cpu', compute_type='int8')
+                model = WhisperModel(model_size, device='cuda', compute_type='float16')
             except Exception as e:
                 logger.error(f'{e} thrown while loading whisper model')
                 raise typer.Exit(1)

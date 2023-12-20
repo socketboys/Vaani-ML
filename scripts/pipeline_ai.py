@@ -57,7 +57,7 @@ class Pipeline:
             try:
                 model_size = 'large-v2'
                 #use float16 for gpu
-                model = WhisperModel(model_size, device='cpu', compute_type='int8')
+                model = WhisperModel(model_size, device='cuda', compute_type='float16')
             except Exception as e:
                 logger.error(f'{e} thrown while loading whisper model')
                 raise typer.Exit(1)
@@ -152,7 +152,7 @@ class Pipeline:
 
             # scipy.io.wavfile.write(
             #     file_name, rate=model.config.sampling_rate, data=output)
-            command = f'tts --text "{text}" --config_path  models/v1/{AIBharat_TTS[lang]}/fastpitch/config.json --model_path models/v1/{AIBharat_TTS[lang]}/fastpitch/best_model.pth --out_path {file_name} --speaker_idx "{self.gender}" --vocoder_path models/v1/{AIBharat_TTS[lang]}/hifigan/best_model.pth --vocoder_config_path models/v1/{AIBharat_TTS[lang]}/hifigan/config.json'
+            command = f'tts --text "{text}" --config_path  models/v1/{AIBharat_TTS[lang]}/fastpitch/config.json --model_path models/v1/{AIBharat_TTS[lang]}/fastpitch/best_model.pth --out_path {file_name} --speaker_idx "{self.gender}" --vocoder_path models/v1/{AIBharat_TTS[lang]}/hifigan/best_model.pth --vocoder_config_path models/v1/{AIBharat_TTS[lang]}/hifigan/config.json --device "{self.device}"'
 
             subprocess.run(command)
 
