@@ -26,22 +26,22 @@ class AudioProcessingApp(QWidget):
         self.lang_combobox = QComboBox(self)
         self.lang_combobox.addItems(['Hindi', 'Bengali', 'Telugu'])  
 
-        self.audio_name_label = QLabel('Audio File Name:')
+        self.audio_name_label = QLabel('Youtube Link:')
         self.audio_name_edit = QLineEdit(self)
         self.audio_name_label.setBuddy(self.audio_name_edit)
 
         self.process_button = QPushButton('Process Audio', self)
         self.process_button.clicked.connect(self.process_audio)
 
-        self.browse_button = QPushButton('Browse', self)
-        self.browse_button.clicked.connect(self.browse_audio_file)
+        # self.browse_button = QPushButton('Browse', self)
+        # self.browse_button.clicked.connect(self.browse_audio_file)
 
         layout = QVBoxLayout()
         layout.addWidget(self.lang_label)
         layout.addWidget(self.lang_combobox)
         layout.addWidget(self.audio_name_label)
         layout.addWidget(self.audio_name_edit)
-        layout.addWidget(self.browse_button)
+        # layout.addWidget(self.browse_button)
         layout.addWidget(self.process_button)
 
         self.setLayout(layout)
@@ -100,10 +100,10 @@ class AudioProcessingApp(QWidget):
             print(f'{e} thrown from pipeline')
             sys.exit(1)
 
-    def browse_audio_file(self):
-        fname = QFileDialog.getOpenFileName(self, 'Open Audio File', '', 'Audio Files (*.wav *.mp3);;All Files (*)')
-        if fname[0]: 
-            self.audio_name_edit.setText(fname[0])
+    # def browse_audio_file(self):
+    #     fname = QFileDialog.getOpenFileName(self, 'Open Audio File', '', 'Audio Files (*.wav *.mp3);;All Files (*)')
+    #     if fname[0]: 
+    #         self.audio_name_edit.setText(fname[0])
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
