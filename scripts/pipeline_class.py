@@ -5,7 +5,7 @@ from re import search
 import typer
 import scipy
 import torch
-# from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 from transformers import AutoProcessor, SeamlessM4Tv2Model
 from faster_whisper import WhisperModel
 from transformers import  AutoModelForSeq2SeqLM
@@ -39,51 +39,7 @@ class Pipeline:
         logger.info(f"Device: {self.device}")
         self.translated = list()
 
-    def seconds_to_subtitle_time(self, seconds):
-        hours = int(seconds // 3600)
-        seconds %= 3600
-        minutes = int(seconds // 60)
-        seconds %= 60
-        milliseconds = int((seconds - int(seconds)) * 1000)
-        seconds = int(seconds)
-
-        return f"{hours:02d}:{minutes:02d}:{seconds:02d},{milliseconds:03d}"
-
-
-    def transcibe(self, input_path, audio_name):
-        try:
-            logger.info("Starting Transcription")
-            try:
-                model_size = 'large-v2'
-                #use float16 for gpu
-                model = WhisperModel(model_size, device='cpu', compute_type='int8')
-            except Exception as e:
-                logger.error(f'{e} thrown while loading whisper model')
-                raise typer.Exit(1)
-            segments, _ = model.transcribe(input_path+audio_name, beam_size=5)
-            logger.info("Transciption Done")
-
-            i=0
-            srt=""
-            output_file = f"{root_dir}/subtitle/" + audio_name[:-4] + "_" + languages[self.language]["tts"][-3:-1] + ".srt"
-            for segment in segments:
-                text = segment.text.lstrip()
-                trans_text = self.translate(text, languages[self.language]['translate'])
-                self.translated.append(trans_text)
-                i=i+1
-                srt = srt+"%i\n%s --> %s\n%s"%(i,self.seconds_to_subtitle_time(segment.start), self.seconds_to_subtitle_time(segment.end), text)+"\n\n"
-
-
-            with open(output_file, 'x+', encoding='utf-8') as f:
-                f.write(srt)
-            return segments
-            
-
-        except Exception as e:
-            logger.error(f"Error occured while transcribing text:{str(e)}")
-            raise typer.Exit(1)
-            
-        
+    
     
     def translate(self,text,lang):
         try:
@@ -107,32 +63,32 @@ class Pipeline:
             raise typer.Exit(1)
                     
     
-    # def translated_sub(self,file,lang):
-    #     try:
-    #         logger.info("Creating Subtitles")
-    #         output_file = f"{root_dir}/subtitle/" + file + \
-    #             "_" + languages[lang]["tts"][-3:-1] + ".srt"
-    #         input_file = f"{root_dir}/input/" + file + ".srt"
+    def translated_sub(self,file,lang):
+        try:
+            logger.info("Creating Subtitles")
+            output_file = f"{root_dir}/subtitle/" + file + \
+                "_" + languages[lang]["tts"][-3:-1] + ".srt"
+            input_file = f"{root_dir}/input/" + file + ".srt"
 
-    #         logger.info("Reaching out to translator function...")
-    #         with open(input_file, 'r', encoding="utf-8") as infile, open(output_file, 'x+', encoding="utf-8") as outfile:
-    #             for line in infile:
+            logger.info("Reaching out to translator function...")
+            with open(input_file, 'r', encoding="utf-8") as infile, open(output_file, 'x+', encoding="utf-8") as outfile:
+                for line in infile:
 
-    #                 match = search(
-    #                     r'\d+\n\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}\n|\d+\n', line)
-    #                 to_translate = search(r'^[a-zA-Z]', line)
-    #                 if match:
-    #                     outfile.write(line)
-    #                 elif to_translate:
+                    match = search(
+                        r'\d+\n\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}\n|\d+\n', line)
+                    to_translate = search(r'^[a-zA-Z]', line)
+                    if match:
+                        outfile.write(line)
+                    elif to_translate:
 
-    #                     translated_text = self.translate(line, languages[lang]["translate"])
-    #                     self.translated.append(translated_text)
-    #                     outfile.write(translated_text + "\n\n")
-    #         logger.info("Translated.")
-    #         logger.info("Subtitles are created")
-    #     except Exception as e:
-    #         logger.error(f"Error while translating subtitles:{str(e)}")
-    #         raise typer.Exit(1)
+                        translated_text = self.translate(line, languages[lang]["translate"])
+                        self.translated.append(translated_text)
+                        outfile.write(translated_text + "\n\n")
+            logger.info("Translated.")
+            logger.info("Subtitles are created")
+        except Exception as e:
+            logger.error(f"Error while translating subtitles:{str(e)}")
+            raise typer.Exit(1)
             
     def tts(self,file, text, lang,gender):
         try:
@@ -160,12 +116,12 @@ class Pipeline:
         try:
             logger.info("Starting Pipeline")
             file = self.audio_name[:-4]
-            transcript = self.transcibe(self.input_path , self.audio_name)
+            # transcript = self.transcibe(self.input_path + self.audio_name)
             # translated_text = self.translate(transcript, self.language)
             
             # self.english_srt(transcript, self.input_path + self.audio_name)
             
-            # self.translated_sub(file, self.language)
+            self.translated_sub(file, self.language)
             translated_transcript = " ".join(self.translated)
             
             self.tts(file, translated_transcript, languages[self.language]["tts"],languages[self.language][self.gender])
@@ -176,7 +132,48 @@ class Pipeline:
             raise typer.Exit(1)
 
 
+def seconds_to_subtitle_time(seconds):
+        hours = int(seconds // 3600)
+        seconds %= 3600
+        minutes = int(seconds // 60)
+        seconds %= 60
+        milliseconds = int((seconds - int(seconds)) * 1000)
+        seconds = int(seconds)
 
+        return f"{hours:02d}:{minutes:02d}:{seconds:02d},{milliseconds:03d}"
+
+
+def transcibe(input_path, audio_name):
+    try:
+        logger.info("Starting Transcription")
+        try:
+            model_size = 'large-v2'
+            #use float16 for gpu
+            model = WhisperModel(model_size, device='cpu', compute_type='int8')
+        except Exception as e:
+            logger.error(f'{e} thrown while loading whisper model')
+            raise typer.Exit(1)
+        segments, _ = model.transcribe(input_path+audio_name, beam_size=5)
+        logger.info("Transciption Done")
+
+        i=0
+        srt=""
+        output_file = f"{root_dir}/input/"+ audio_name[:-4] +".srt"
+        for segment in segments:
+            text = segment.text.lstrip()
+            i=i+1
+            srt = srt+"%i\n%s --> %s\n%s"%(i,seconds_to_subtitle_time(segment.start), seconds_to_subtitle_time(segment.end), text)+"\n\n"
+
+
+        with open(output_file, 'x+', encoding='utf-8') as f:
+            f.write(srt)
+        return segments
+        
+
+    except Exception as e:
+        logger.error(f"Error occured while transcribing text:{str(e)}")
+        raise typer.Exit(1)
+        
 
 
 def get_gender(audioname,input_path):
@@ -196,10 +193,10 @@ def process(input_path,audio_name,lang,gender):
 
 def multi_process(input_path,audio,langs):
     start_time = time.time()
-    logger.info("Multiprocessing started in pipeline class")
+    logger.info("Multiprocessing started")
     
     gender = get_gender(audio,input_path)
-    # transcript = transcibe(input_path, audio)
+    transcript = transcibe(input_path, audio)
     
     with Pool(processes=len(langs)) as pool:
         pool.starmap(process, zip(repeat(input_path),repeat(audio),langs,repeat(gender)))
