@@ -1,0 +1,7 @@
+2023-12-19 01:20:48.402 | INFO     | scripts.pipeline_class:<module>:28 - Running on win32
+2023-12-19 01:20:48.410 | INFO     | scripts.pipeline_ai:<module>:27 - Running on win32
+2023-12-19 01:20:48.410 | INFO     | scripts.pipeline_ai:multi_process:207 - Multiprocessing started
+2023-12-19 01:20:48.410 | INFO     | scripts.pipeline_ai:get_gender:191 - Getting gender
+2023-12-19 01:21:04.819 | INFO     | scripts.pipeline_ai:get_gender:196 - male
+2023-12-19 01:21:04.819 | INFO     | scripts.pipeline_ai:transcibe:159 - Starting Transcription
+2023-12-19 01:21:47.046 | INFO     | scripts.pipeline_ai:transcibe:168 - Transciption Done

@@ -1,0 +1,25 @@
+2023-12-12 17:53:52.217 | INFO     | scripts.pipeline_class:<module>:27 - Running on darwin
+2023-12-12 17:53:52.218 | INFO     | scripts.pipeline_class:process:160 - hindi process started
+2023-12-12 17:53:52.219 | INFO     | scripts.pipeline_class:__init__:32 - Class initialized
+2023-12-12 17:53:52.219 | INFO     | scripts.pipeline_class:__init__:37 - Device: cpu
+2023-12-12 17:53:52.219 | INFO     | scripts.pipeline_class:start:141 - Starting Pipeline
+2023-12-12 17:53:52.219 | INFO     | scripts.pipeline_class:transcibe:42 - Starting Transcription
+2023-12-12 17:53:56.244 | INFO     | scripts.pipeline_class:transcibe:50 - Transciption Done
+2023-12-12 17:53:56.255 | INFO     | scripts.pipeline_class:translated_sub:92 - Creating Subtitles
+2023-12-12 17:53:56.255 | INFO     | scripts.pipeline_class:translated_sub:97 - Reaching out to translator function...
+2023-12-12 17:54:15.536 | INFO     | scripts.pipeline_class:translate:66 - Translating in hi_IN
+2023-12-12 17:54:18.827 | INFO     | scripts.pipeline_class:translate:74 - Translation Done
+2023-12-12 17:54:36.273 | INFO     | scripts.pipeline_class:translate:66 - Translating in hi_IN
+2023-12-12 17:54:36.976 | INFO     | scripts.pipeline_class:translate:74 - Translation Done
+2023-12-12 17:54:53.498 | INFO     | scripts.pipeline_class:translate:66 - Translating in hi_IN
+2023-12-12 17:54:56.272 | INFO     | scripts.pipeline_class:translate:74 - Translation Done
+2023-12-12 17:55:12.977 | INFO     | scripts.pipeline_class:translate:66 - Translating in hi_IN
+2023-12-12 17:55:13.621 | INFO     | scripts.pipeline_class:translate:74 - Translation Done
+2023-12-12 17:55:30.040 | INFO     | scripts.pipeline_class:translate:66 - Translating in hi_IN
+2023-12-12 17:55:32.846 | INFO     | scripts.pipeline_class:translate:74 - Translation Done
+2023-12-12 17:55:33.027 | INFO     | scripts.pipeline_class:translated_sub:111 - Translated.
+2023-12-12 17:55:33.028 | INFO     | scripts.pipeline_class:translated_sub:112 - Subtitles are created
+2023-12-12 17:55:33.028 | INFO     | scripts.pipeline_class:tts:119 - Starting Text to Speech
+2023-12-12 17:55:38.724 | ERROR    | scripts.pipeline_class:tts:125 - Error while loading TTS model:'SeamlessM4TProcessor' object has no attribute 'to'
+2023-12-12 17:55:38.724 | ERROR    | scripts.pipeline_class:tts:136 - Error while TTS:1
+2023-12-12 17:55:38.724 | ERROR    | scripts.pipeline_class:start:155 - Error while running pipeline:1

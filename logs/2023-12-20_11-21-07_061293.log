@@ -1,0 +1,7 @@
+2023-12-20 11:21:07.063 | INFO     | scripts.pipeline_ai:<module>:29 - Running on darwin
+2023-12-20 11:21:22.504 | INFO     | scripts.pipeline_class:multi_process:196 - Multiprocessing started
+2023-12-20 11:21:22.505 | INFO     | scripts.pipeline_class:get_gender:180 - Getting gender
+2023-12-20 11:21:32.536 | INFO     | scripts.pipeline_class:get_gender:185 - male
+2023-12-20 11:21:32.573 | INFO     | scripts.pipeline_class:transcibe:148 - Starting Transcription
+2023-12-20 11:21:41.596 | INFO     | scripts.pipeline_class:transcibe:157 - Transciption Done
+2023-12-20 11:22:08.375 | ERROR    | scripts.pipeline_class:transcibe:174 - Error occured while transcribing text:[Errno 17] File exists: './data/input/Everyone Can Be Rich.srt'

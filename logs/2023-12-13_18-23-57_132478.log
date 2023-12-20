@@ -1,0 +1,6 @@
+2023-12-13 18:23:57.135 | INFO     | scripts.pipeline_class:<module>:25 - Running on darwin
+2023-12-13 18:23:57.136 | INFO     | scripts.pipeline_class:process:175 - hindi process started
+2023-12-13 18:23:57.137 | INFO     | scripts.pipeline_class:__init__:30 - Class initialized
+2023-12-13 18:23:57.137 | INFO     | scripts.pipeline_class:__init__:36 - Device: cpu
+2023-12-13 18:23:57.137 | INFO     | scripts.pipeline_class:start:156 - Starting Pipeline
+2023-12-13 18:23:57.137 | INFO     | scripts.pipeline_class:transcibe:51 - Starting Transcription

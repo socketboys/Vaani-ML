@@ -1,0 +1,8 @@
+2023-12-19 09:54:14.684 | INFO     | scripts.pipeline_ai:<module>:29 - Running on darwin
+2023-12-19 09:54:14.685 | INFO     | scripts.pipeline_class:process:190 - hindi process started
+2023-12-19 09:54:14.685 | INFO     | scripts.pipeline_class:__init__:33 - Class initialized
+2023-12-19 09:54:14.685 | INFO     | scripts.pipeline_class:__init__:39 - Device: cpu
+2023-12-19 09:54:14.685 | INFO     | scripts.pipeline_class:start:117 - Starting Pipeline
+2023-12-19 09:54:14.685 | INFO     | scripts.pipeline_class:translated_sub:68 - Creating Subtitles
+2023-12-19 09:54:14.686 | ERROR    | scripts.pipeline_class:translated_sub:90 - Error while translating subtitles:'dict' object has no attribute 'key'
+2023-12-19 09:54:14.686 | ERROR    | scripts.pipeline_class:start:131 - Error while running pipeline:1

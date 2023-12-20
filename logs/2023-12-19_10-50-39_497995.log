@@ -1,0 +1,19 @@
+2023-12-19 10:50:39.513 | INFO     | scripts.pipeline_class:<module>:28 - Running on win32
+2023-12-19 10:50:39.513 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 10:50:39.513 | INFO     | scripts.pipeline_ai:process:195 - assamese process started
+2023-12-19 10:50:39.513 | INFO     | scripts.pipeline_ai:__init__:34 - Class initialized
+2023-12-19 10:50:39.513 | INFO     | scripts.pipeline_ai:__init__:40 - Device: cpu
+2023-12-19 10:50:39.513 | INFO     | scripts.pipeline_ai:start:122 - Starting Pipeline
+2023-12-19 10:50:39.513 | INFO     | scripts.pipeline_ai:translated_sub:69 - Creating Subtitles
+2023-12-19 10:50:39.513 | INFO     | scripts.pipeline_ai:translated_sub:74 - Reaching out to translator function...
+2023-12-19 10:50:46.102 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 10:50:49.743 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 10:50:55.828 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 10:50:58.340 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 10:51:03.889 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 10:51:06.502 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 10:51:06.590 | INFO     | scripts.pipeline_ai:translated_sub:88 - Translated.
+2023-12-19 10:51:06.590 | INFO     | scripts.pipeline_ai:translated_sub:89 - Subtitles are created
+2023-12-19 10:51:06.590 | INFO     | scripts.pipeline_ai:tts:96 - Starting Text to Speech
+2023-12-19 10:51:06.590 | ERROR    | scripts.pipeline_ai:tts:117 - Error while TTS:'asm'
+2023-12-19 10:51:06.590 | ERROR    | scripts.pipeline_ai:start:136 - Error while running pipeline:1

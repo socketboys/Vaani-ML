@@ -1,0 +1,35 @@
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_class:<module>:28 - Running on win32
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:<module>:29 - Running on win32
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:process:195 - assamese process started
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:process:195 - assamese process started
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:__init__:34 - Class initialized
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:__init__:34 - Class initialized
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:__init__:40 - Device: cpu
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:__init__:40 - Device: cpu
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:start:122 - Starting Pipeline
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:start:122 - Starting Pipeline
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:translated_sub:69 - Creating Subtitles
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:translated_sub:69 - Creating Subtitles
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:translated_sub:74 - Reaching out to translator function...
+2023-12-19 10:46:07.256 | INFO     | scripts.pipeline_ai:translated_sub:74 - Reaching out to translator function...
+2023-12-19 10:46:14.222 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 10:46:14.222 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 10:46:17.469 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 10:46:17.469 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 10:46:22.860 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 10:46:22.860 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 10:46:25.352 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 10:46:25.352 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 10:46:30.365 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 10:46:30.365 | INFO     | scripts.pipeline_ai:translate:53 - Translating in asm_Beng
+2023-12-19 10:46:33.262 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 10:46:33.262 | INFO     | scripts.pipeline_ai:translate:60 - Translation Done
+2023-12-19 10:46:33.338 | INFO     | scripts.pipeline_ai:translated_sub:88 - Translated.
+2023-12-19 10:46:33.338 | INFO     | scripts.pipeline_ai:translated_sub:88 - Translated.
+2023-12-19 10:46:33.339 | INFO     | scripts.pipeline_ai:translated_sub:89 - Subtitles are created
+2023-12-19 10:46:33.339 | INFO     | scripts.pipeline_ai:translated_sub:89 - Subtitles are created
+2023-12-19 10:46:33.339 | INFO     | scripts.pipeline_ai:tts:96 - Starting Text to Speech
+2023-12-19 10:46:33.339 | INFO     | scripts.pipeline_ai:tts:96 - Starting Text to Speech
+2023-12-19 10:46:33.340 | ERROR    | scripts.pipeline_ai:start:136 - Error while running pipeline:cannot access local variable 'str' where it is not associated with a value
+2023-12-19 10:46:33.340 | ERROR    | scripts.pipeline_ai:start:136 - Error while running pipeline:cannot access local variable 'str' where it is not associated with a value

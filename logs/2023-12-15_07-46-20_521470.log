@@ -1,0 +1,6 @@
+2023-12-15 07:46:20.523 | INFO     | scripts.pipeline_class:<module>:26 - Running on darwin
+2023-12-15 07:46:20.524 | INFO     | scripts.pipeline_class:process:191 - hindi process started
+2023-12-15 07:46:20.524 | INFO     | scripts.pipeline_class:__init__:31 - Class initialized
+2023-12-15 07:46:20.525 | INFO     | scripts.pipeline_class:__init__:37 - Device: cpu
+2023-12-15 07:46:20.525 | INFO     | scripts.pipeline_class:start:118 - Starting Pipeline
+2023-12-15 07:46:20.525 | ERROR    | scripts.pipeline_class:start:132 - Error while running pipeline:'Pipeline' object has no attribute 'transcibe'

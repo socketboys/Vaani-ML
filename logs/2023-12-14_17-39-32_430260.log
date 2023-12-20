@@ -1,0 +1,21 @@
+2023-12-14 17:39:32.432 | INFO     | scripts.pipeline_class:<module>:26 - Running on darwin
+2023-12-14 17:39:32.433 | INFO     | scripts.pipeline_class:process:187 - hindi process started
+2023-12-14 17:39:32.433 | INFO     | scripts.pipeline_class:__init__:31 - Class initialized
+2023-12-14 17:39:32.433 | INFO     | scripts.pipeline_class:__init__:37 - Device: cpu
+2023-12-14 17:39:32.434 | INFO     | scripts.pipeline_class:start:157 - Starting Pipeline
+2023-12-14 17:39:32.434 | INFO     | scripts.pipeline_class:transcibe:52 - Starting Transcription
+2023-12-14 17:39:51.653 | INFO     | scripts.pipeline_class:transcibe:61 - Transciption Done
+2023-12-14 17:40:01.461 | INFO     | scripts.pipeline_class:translated_sub:108 - Creating Subtitles
+2023-12-14 17:40:01.462 | INFO     | scripts.pipeline_class:translated_sub:113 - Reaching out to translator function...
+2023-12-14 17:40:20.003 | INFO     | scripts.pipeline_class:translate:91 - Translating in hi_IN
+2023-12-14 17:40:22.997 | INFO     | scripts.pipeline_class:translate:99 - Translation Done
+2023-12-14 17:40:40.810 | INFO     | scripts.pipeline_class:translate:91 - Translating in hi_IN
+2023-12-14 17:40:43.539 | INFO     | scripts.pipeline_class:translate:99 - Translation Done
+2023-12-14 17:41:00.692 | INFO     | scripts.pipeline_class:translate:91 - Translating in hi_IN
+2023-12-14 17:41:03.483 | INFO     | scripts.pipeline_class:translate:99 - Translation Done
+2023-12-14 17:41:03.671 | INFO     | scripts.pipeline_class:translated_sub:127 - Translated.
+2023-12-14 17:41:03.671 | INFO     | scripts.pipeline_class:translated_sub:128 - Subtitles are created
+2023-12-14 17:41:03.671 | INFO     | scripts.pipeline_class:tts:135 - Starting Text to Speech
+2023-12-14 17:42:15.261 | INFO     | scripts.pipeline_class:tts:149 - Text to Speech done
+2023-12-14 17:42:16.094 | INFO     | scripts.pipeline_class:start:169 - Pipeline Done
+2023-12-14 17:42:16.094 | INFO     | scripts.pipeline_class:process:189 - hindi process completed

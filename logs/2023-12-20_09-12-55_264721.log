@@ -1,0 +1,6 @@
+2023-12-20 09:12:55.266 | INFO     | scripts.pipeline_class:<module>:28 - Running on darwin
+2023-12-20 09:12:55.269 | INFO     | scripts.pipeline_ai:<module>:29 - Running on darwin
+2023-12-20 09:13:03.481 | INFO     | scripts.pipeline_class:multi_process:199 - Multiprocessing started in pipeline class
+2023-12-20 09:13:03.481 | INFO     | scripts.pipeline_class:get_gender:183 - Getting gender
+2023-12-20 09:13:13.444 | INFO     | scripts.pipeline_class:get_gender:188 - male
+2023-12-20 09:21:45.467 | INFO     | scripts.pipeline_class:multi_process:212 - Multiprocessing completed and time taken 521.9832558631897

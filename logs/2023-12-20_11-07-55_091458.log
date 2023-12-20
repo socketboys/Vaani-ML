@@ -1,0 +1,70 @@
+2023-12-20 11:07:55.093 | INFO     | scripts.pipeline_class:<module>:28 - Running on darwin
+2023-12-20 11:07:55.096 | INFO     | scripts.pipeline_ai:<module>:29 - Running on darwin
+2023-12-20 11:07:55.100 | INFO     | scripts.pipeline_class:process:190 - hindi process started
+2023-12-20 11:07:55.101 | INFO     | scripts.pipeline_class:__init__:33 - Class initialized
+2023-12-20 11:07:55.101 | INFO     | scripts.pipeline_class:__init__:39 - Device: cpu
+2023-12-20 11:07:55.101 | INFO     | scripts.pipeline_class:start:117 - Starting Pipeline
+2023-12-20 11:07:55.101 | INFO     | scripts.pipeline_class:translated_sub:68 - Creating Subtitles
+2023-12-20 11:07:55.101 | INFO     | scripts.pipeline_class:translated_sub:73 - Reaching out to translator function...
+2023-12-20 11:08:10.237 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:08:11.147 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:08:24.450 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:08:25.315 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:08:38.341 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:08:39.626 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:08:52.443 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:08:53.732 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:09:06.773 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:09:07.209 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:09:20.307 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:09:21.077 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:09:34.354 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:09:35.196 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:09:48.199 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:09:48.912 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:10:02.015 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:10:02.789 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:10:15.849 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:10:16.807 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:10:29.848 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:10:30.480 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:10:43.502 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:10:44.524 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:10:57.758 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:10:58.826 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:11:12.161 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:11:12.825 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:11:26.378 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:11:27.080 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:11:40.112 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:11:41.534 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:11:55.041 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:11:55.939 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:12:09.195 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:12:09.918 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:12:22.901 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:12:23.808 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:12:37.605 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:12:38.360 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:12:51.630 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:12:52.685 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:13:07.955 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:13:09.381 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:13:24.558 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:13:25.186 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:13:38.788 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:13:39.647 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:13:53.617 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:13:54.436 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:14:08.462 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:14:09.218 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:14:22.453 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:14:23.165 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:14:36.156 | INFO     | scripts.pipeline_class:translate:52 - Translating in hin_Deva
+2023-12-20 11:14:37.051 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-20 11:14:37.112 | INFO     | scripts.pipeline_class:translated_sub:87 - Translated.
+2023-12-20 11:14:37.112 | INFO     | scripts.pipeline_class:translated_sub:88 - Subtitles are created
+2023-12-20 11:14:37.112 | INFO     | scripts.pipeline_class:tts:95 - Starting Text to Speech
+2023-12-20 11:16:02.176 | INFO     | scripts.pipeline_class:tts:109 - Text to Speech done
+2023-12-20 11:16:02.911 | INFO     | scripts.pipeline_class:start:129 - Pipeline Done
+2023-12-20 11:16:02.912 | INFO     | scripts.pipeline_class:process:192 - hindi process completed

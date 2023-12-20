@@ -1,0 +1,58 @@
+2023-12-19 15:26:50.181 | INFO     | scripts.pipeline_class:<module>:28 - Running on darwin
+2023-12-19 15:26:50.183 | INFO     | scripts.pipeline_ai:<module>:29 - Running on darwin
+2023-12-19 15:26:50.184 | INFO     | scripts.pipeline_class:process:190 - bengali process started
+2023-12-19 15:26:50.184 | INFO     | scripts.pipeline_class:__init__:33 - Class initialized
+2023-12-19 15:26:50.184 | INFO     | scripts.pipeline_class:__init__:39 - Device: cpu
+2023-12-19 15:26:50.185 | INFO     | scripts.pipeline_class:start:117 - Starting Pipeline
+2023-12-19 15:26:50.185 | INFO     | scripts.pipeline_class:translated_sub:68 - Creating Subtitles
+2023-12-19 15:26:50.185 | INFO     | scripts.pipeline_class:translated_sub:73 - Reaching out to translator function...
+2023-12-19 15:27:04.180 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:27:06.113 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:27:18.837 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:27:20.144 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:27:32.280 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:27:33.101 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:27:45.098 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:27:46.372 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:27:58.434 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:27:59.655 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:28:11.546 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:28:12.901 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:28:24.873 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:28:26.220 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:28:38.261 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:28:39.676 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:28:51.621 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:28:52.515 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:29:04.651 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:29:05.799 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:29:17.891 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:29:18.981 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:29:31.107 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:29:32.677 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:29:44.720 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:29:45.676 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:29:57.525 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:29:59.320 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:30:11.437 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:30:12.661 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:30:25.113 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:30:26.461 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:30:38.890 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:30:39.904 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:30:52.446 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:30:54.058 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:31:06.440 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:31:07.803 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:31:20.068 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:31:21.025 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:31:33.409 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:31:34.843 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:31:47.019 | INFO     | scripts.pipeline_class:translate:52 - Translating in ben_Beng
+2023-12-19 15:31:47.993 | INFO     | scripts.pipeline_class:translate:59 - Translation Done
+2023-12-19 15:31:48.057 | INFO     | scripts.pipeline_class:translated_sub:87 - Translated.
+2023-12-19 15:31:48.058 | INFO     | scripts.pipeline_class:translated_sub:88 - Subtitles are created
+2023-12-19 15:31:48.058 | INFO     | scripts.pipeline_class:tts:95 - Starting Text to Speech
+2023-12-19 15:33:05.527 | INFO     | scripts.pipeline_class:tts:109 - Text to Speech done
+2023-12-19 15:33:06.219 | INFO     | scripts.pipeline_class:start:129 - Pipeline Done
+2023-12-19 15:33:06.219 | INFO     | scripts.pipeline_class:process:192 - bengali process completed

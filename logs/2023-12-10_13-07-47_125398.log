@@ -1,0 +1,25 @@
+2023-12-10 13:07:47.127 | INFO     | scripts.pipeline_class:<module>:26 - Running on darwin
+2023-12-10 13:07:47.128 | INFO     | scripts.pipeline_class:process:159 - hindi process started
+2023-12-10 13:07:47.129 | INFO     | scripts.pipeline_class:__init__:31 - Class initialized
+2023-12-10 13:07:47.129 | INFO     | scripts.pipeline_class:__init__:36 - Device: cpu
+2023-12-10 13:07:47.129 | INFO     | scripts.pipeline_class:start:140 - Starting Pipeline
+2023-12-10 13:07:47.129 | INFO     | scripts.pipeline_class:transcibe:41 - Starting Transcription
+2023-12-10 13:07:49.991 | INFO     | scripts.pipeline_class:transcibe:49 - Transciption Done
+2023-12-10 13:07:50.005 | INFO     | scripts.pipeline_class:translated_sub:91 - Creating Subtitles
+2023-12-10 13:07:50.005 | INFO     | scripts.pipeline_class:translated_sub:96 - Reaching out to translator function...
+2023-12-10 13:08:12.076 | INFO     | scripts.pipeline_class:translate:65 - Translating in hi_IN
+2023-12-10 13:08:16.913 | INFO     | scripts.pipeline_class:translate:73 - Translation Done
+2023-12-10 13:08:36.462 | INFO     | scripts.pipeline_class:translate:65 - Translating in hi_IN
+2023-12-10 13:08:37.273 | INFO     | scripts.pipeline_class:translate:73 - Translation Done
+2023-12-10 13:08:55.107 | INFO     | scripts.pipeline_class:translate:65 - Translating in hi_IN
+2023-12-10 13:08:58.301 | INFO     | scripts.pipeline_class:translate:73 - Translation Done
+2023-12-10 13:09:15.498 | INFO     | scripts.pipeline_class:translate:65 - Translating in hi_IN
+2023-12-10 13:09:16.169 | INFO     | scripts.pipeline_class:translate:73 - Translation Done
+2023-12-10 13:09:34.701 | INFO     | scripts.pipeline_class:translate:65 - Translating in hi_IN
+2023-12-10 13:09:38.480 | INFO     | scripts.pipeline_class:translate:73 - Translation Done
+2023-12-10 13:09:38.722 | INFO     | scripts.pipeline_class:translated_sub:110 - Translated.
+2023-12-10 13:09:38.722 | INFO     | scripts.pipeline_class:translated_sub:111 - Subtitles are created
+2023-12-10 13:09:38.722 | INFO     | scripts.pipeline_class:tts:118 - Starting Text to Speech
+2023-12-10 13:09:43.701 | INFO     | scripts.pipeline_class:tts:132 - Text to Speech done
+2023-12-10 13:09:43.706 | INFO     | scripts.pipeline_class:start:152 - Pipeline Done
+2023-12-10 13:09:43.707 | INFO     | scripts.pipeline_class:process:161 - hindi process completed
