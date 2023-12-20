@@ -5,7 +5,7 @@ from PyQt5.QtCore import QUrl
 from scripts import pipeline_class, pipeline_ai
 from config import root_dir,languages
 from pytube import YouTube
-from ffmpeg import audio_extraction, mute, add_audio_track
+from ffmpeg import audio_extraction, mute, add_audio_track,adjust_audio_and_stitch
 
 input_dir = f"{root_dir}/input/"
 output_dir = f"{root_dir}/audio/"
@@ -87,6 +87,7 @@ class AudioProcessingApp(QWidget):
             lang = langs[0]
             lang= languages[lang]["tts"]
             file = input_video
+            srt = f"{root_dir}/subtitle/" + file + "_" + lang[:-1] + ".srt"
             file_name = f"{root_dir}/audio/" + file + "_" + lang[:-1] + ".wav"
             print(file_name)
             
@@ -95,7 +96,8 @@ class AudioProcessingApp(QWidget):
         #     QUrl.fromLocalFile(output_directory).setScheme("file")
             # QDesktopServices.openUrl(QUrl.fromLocalFile(output_directory))
             
-            add_audio_track(f"data/video/{input_video}_muted.mp4",file_name)
+            # add_audio_track(f"data/video/{input_video}_muted.mp4",file_name)
+            adjust_audio_and_stitch(f"data/video/{input_video}_muted.mp4",file_name,srt)
         except Exception as e:
             print(f'{e} thrown from pipeline')
             sys.exit(1)
