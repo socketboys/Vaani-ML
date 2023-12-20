@@ -44,8 +44,8 @@ class Rabbit:
     def callback(self, channel, method, properties, body):
         msg = json.loads(body)
         print(msg)
-        # run(msg["language"],msg["euid"])
-        sleep(120)
+        run(msg["language"],msg["euid"])
+        # sleep(120) # for testing
 
         channel.basic_ack(delivery_tag=method.delivery_tag)
         self.producer_channel.basic_publish(exchange=Rabbit.POOL_EXCHANGE, routing_key=Rabbit.POOL_ROUTING_KEY, body=body)
